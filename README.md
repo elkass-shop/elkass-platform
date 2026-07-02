@@ -1,0 +1,11 @@
+# ELKASS 10 Premium — V44 Product Experience PREMIUM
+
+To jest brakujący etap V44 pomiędzy V43 Product Engine a V45 Smart Commerce.
+
+## Co sprawdzić
+1. Wejdź w `/app/product/?id=tv-samsung-55-crystal-uhd`.
+2. Kliknij produkty z sekcji `Kupowane razem` i `Produkty podobne` — powinny otwierać różne produkty.
+3. Sprawdź mobile: dolny pasek zakupu, miniatury, parametry.
+4. Sprawdź, czy Ekspert ELKASS i Usługi ELKASS są niżej, a nie dominują na górze.
+
+Po zatwierdzeniu V44 można nakładać V45 Smart Commerce + Theme Engine.
