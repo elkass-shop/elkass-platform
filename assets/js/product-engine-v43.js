@@ -92,7 +92,8 @@
   function renderProductPage(products){
     if(!location.pathname.includes('/app/product')) return;
     const byId=Object.fromEntries(products.map(p=>[p.id,p]));
-    const id=new URLSearchParams(location.search).get('id') || 'tv-samsung-55-crystal-uhd';
+    const pathId=(location.pathname.split('/').filter(Boolean).pop()||'').replace('.html','');
+    const id=new URLSearchParams(location.search).get('id') || (pathId && !['product','produkt'].includes(pathId) ? pathId : '') || 'tv-samsung-55-crystal-uhd';
     const p=byId[id] || byId['tv-samsung-55-crystal-uhd'];
     document.title = p.name + ' — ELKASS Olesno';
     const main=document.querySelector('main'); if(!main) return;
@@ -136,7 +137,10 @@
   function renderCart(products){
     if(!location.pathname.includes('/app/cart')) return;
     const byId=Object.fromEntries(products.map(p=>[p.id,p]));
-    const cart=JSON.parse(localStorage.getItem('elkass-cart-v43')||'[]');
+    const key='elkass-cart-v43';
+    const addId=new URLSearchParams(location.search).get('add');
+    let cart=JSON.parse(localStorage.getItem(key)||'[]');
+    if(addId){ const existing=cart.find(i=>i.id===addId); if(existing) existing.qty=(existing.qty||1)+1; else cart.push({id:addId,qty:1}); localStorage.setItem(key,JSON.stringify(cart)); history.replaceState(null,'','/app/cart/'); }
     document.querySelectorAll('a').forEach(a=>{if((a.textContent||'').toLowerCase().includes('kontynuuj zakupy')) a.href='/app/category/';});
     if(!cart.length) return;
     const main=document.querySelector('main'); if(!main) return;

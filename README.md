@@ -1,43 +1,11 @@
-# ELKASS Platform
+# ELKASS 10 Premium — V44 Product Experience PREMIUM
 
-Oficjalne repo projektu ELKASS Platform — sklep RTV/AGD + ELKASS Studio.
+To jest brakujący etap V44 pomiędzy V43 Product Engine a V45 Smart Commerce.
 
-## Uruchomienie
+## Co sprawdzić
+1. Wejdź w `/app/product/?id=tv-samsung-55-crystal-uhd`.
+2. Kliknij produkty z sekcji `Kupowane razem` i `Produkty podobne` — powinny otwierać różne produkty.
+3. Sprawdź mobile: dolny pasek zakupu, miniatury, parametry.
+4. Sprawdź, czy Ekspert ELKASS i Usługi ELKASS są niżej, a nie dominują na górze.
 
-Projekt jest statyczny i działa na Vercel jako HTML/CSS/JS.
-
-Główne wejście:
-
-- `/` — strona główna,
-- `/app/category/` — kategorie,
-- `/app/product/?id=tv-samsung-55-crystal-uhd` — karta produktu,
-- `/app/cart/` — koszyk,
-- `/admin/` — ELKASS Studio.
-
-## Struktura
-
-```text
-admin/      ELKASS Studio
-app/        strony sklepu
-assets/     CSS, JS, grafiki, ikony, motywy
-data/       produkty, kategorie, koszyk, konfiguracje
-docs/       dokumentacja projektu
-config/     konfiguracja
-scripts/    skrypty pomocnicze
-storage/    miejsce na przyszłe pliki generowane
-tests/      testy i checklisty
-```
-
-## Dokumentacja
-
-Najważniejsze pliki:
-
-- `CHANGELOG.md`
-- `ROADMAP.md`
-- `docs/project/PROJECT_BOOK.md`
-- `docs/project/MIGRATION_TO_GITHUB.md`
-- `docs/project/00_MASTER_PROJECT_LOG.md`
-
-## Zasada projektu
-
-Klient ma widzieć piękny sklep. Pracownik ma korzystać z naszego oprogramowania.
+Po zatwierdzeniu V44 można nakładać V45 Smart Commerce + Theme Engine.

@@ -49,6 +49,18 @@
     {
       "source": "/account",
       "destination": "/app/account/index.html"
+    },
+    {
+      "source": "/app/product/:slug",
+      "destination": "/app/product/index.html"
+    },
+    {
+      "source": "/produkt/:slug",
+      "destination": "/app/product/index.html"
+    },
+    {
+      "source": "/products/:slug",
+      "destination": "/app/product/index.html"
     }
   ]
 }
