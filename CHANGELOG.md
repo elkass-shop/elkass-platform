@@ -39,3 +39,9 @@ Każdy kolejny moduł rozwijamy równolegle dla:
 - Dodano Product Builder PRO z finansowaniem, parametrami, mediami i powiązaniami.
 - Dodano dokumentację `docs/studio/V47_STUDIO_COMPLETE.md`.
 - Dodano dokument `docs/platform/WOODYBOY_PLATFORM.md` z założeniem, że ELKASS jest pierwszym wdrożeniem przyszłej platformy WOODYBOY.
+
+## V50/V51 — Home Trust Polish + Launch QA
+- Opinie Google przebudowane w kierunku starego, spokojnego stylu premium: gwiazdki, ocena 4.8/5, lokalne zaufanie.
+- Zmniejszono i uspokojono sekcję producentów pod kategoriami.
+- Ukryto publiczne elementy techniczne Theme Engine.
+- Dodano dokumentację sprintu w `docs/project/V50_V51_HOME_TRUST_AND_LAUNCH_QA.md`.

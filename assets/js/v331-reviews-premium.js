@@ -63,15 +63,11 @@
     ['Teresa J.','Gorzów Śląski','Dostawa, wniesienie i uruchomienie sprzętu bez żadnych zastrzeżeń.'],
     ['Szymon C.','Olesno','Dobra oferta, przejrzyste warunki i szybka realizacja.']
   ];
-  const starDef='<svg aria-hidden="true" width="0" height="0" style="position:absolute"><defs><linearGradient id="elkassStarGradient" x1="0" x2="1"><stop offset="0%" stop-color="#ffd166"/><stop offset="100%" stop-color="#f59e0b"/></linearGradient></defs></svg>';
-  if(!document.getElementById('elkassStarGradientWrap')){
-    const wrap=document.createElement('div'); wrap.id='elkassStarGradientWrap'; wrap.innerHTML=starDef; document.body.prepend(wrap);
-  }
-  const starSvg='<svg viewBox="0 0 24 24" focusable="false"><path d="M12 2.6l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5L12 17.4 6.2 20.5 7.3 14 2.6 9.4l6.5-.9L12 2.6z"/></svg>';
+  const starText='★★★★★';
   const shuffled=reviews.map(v=>[Math.random(),v]).sort((a,b)=>a[0]-b[0]).map(v=>v[1]);
   track.innerHTML=shuffled.map(([name,place,text])=>{
     const initials=name.split(' ').map(x=>x[0]).join('').slice(0,2).toUpperCase();
-    return `<article class="trust-review"><div><div class="trust-stars" aria-label="Ocena 5 na 5">${starSvg.repeat(5)}</div><p>“${text}”</p></div><div class="trust-person"><div class="trust-author"><span class="trust-avatar">${initials}</span><div><b>${name}</b><small>📍 ${place}</small></div></div><span class="trust-source"><span class="g">G</span> Reviews</span></div></article>`;
+    return `<article class="trust-review"><div><div class="trust-stars" aria-label="Ocena 5 na 5">${starText}</div><p>“${text}”</p></div><div class="trust-person"><div class="trust-author"><span class="trust-avatar">${initials}</span><div><b>${name}</b><small>${place}</small></div></div><span class="trust-source"><span class="g">G</span> Google</span></div></article>`;
   }).join('');
   const prev=document.querySelector('[data-trust-prev]');
   const next=document.querySelector('[data-trust-next]');
