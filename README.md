@@ -13,3 +13,8 @@ Po zatwierdzeniu V44 można nakładać V45 Smart Commerce + Theme Engine.
 
 ## V46 Media Studio PRO
 Dodano fundament biblioteki mediów: `data/media-v46.json`, katalogi `assets/images/*`, panel Media Studio PRO i dokumentację `docs/studio/MEDIA_STUDIO_V46.md`.
+
+
+## Aktualny sprint
+
+V47 – ELKASS Studio COMPLETE: Dashboard + Home Builder oraz Product Builder PRO. Panel testowy dostępny pod `/admin`.

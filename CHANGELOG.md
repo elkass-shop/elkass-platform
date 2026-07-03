@@ -24,3 +24,12 @@ Każdy kolejny moduł rozwijamy równolegle dla:
 - ELKASS Studio,
 - dokumentacji,
 - przyszłej migracji na docelową witrynę.
+
+
+## V47 – ELKASS Studio COMPLETE
+
+- Dodano Dashboard administratora v47.
+- Dodano Home Builder COMPLETE z sekcjami strony głównej.
+- Dodano Product Builder PRO z finansowaniem, parametrami, mediami i powiązaniami.
+- Dodano dokumentację `docs/studio/V47_STUDIO_COMPLETE.md`.
+- Dodano dokument `docs/platform/WOODYBOY_PLATFORM.md` z założeniem, że ELKASS jest pierwszym wdrożeniem przyszłej platformy WOODYBOY.
