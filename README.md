@@ -9,3 +9,7 @@ To jest brakujący etap V44 pomiędzy V43 Product Engine a V45 Smart Commerce.
 4. Sprawdź, czy Ekspert ELKASS i Usługi ELKASS są niżej, a nie dominują na górze.
 
 Po zatwierdzeniu V44 można nakładać V45 Smart Commerce + Theme Engine.
+
+
+## V46 Media Studio PRO
+Dodano fundament biblioteki mediów: `data/media-v46.json`, katalogi `assets/images/*`, panel Media Studio PRO i dokumentację `docs/studio/MEDIA_STUDIO_V46.md`.
