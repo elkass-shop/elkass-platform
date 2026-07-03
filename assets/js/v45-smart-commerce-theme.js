@@ -17,12 +17,8 @@
   function applyTheme(){
     const key=getTheme(); const t=THEMES[key]||THEMES.default; document.body.dataset.theme=key;
     if(new URLSearchParams(location.search).get('theme')) localStorage.setItem('elkass-theme',key);
-    if(!document.querySelector('.v45-theme-strip') && !location.pathname.includes('/admin')){
-      const target=document.querySelector('main')||document.body;
-      const div=document.createElement('div'); div.className='v45-theme-strip';
-      div.innerHTML=`<div class="v45-theme-card"><div><b>${t.icon} ${t.label}</b><small>Theme Engine: dekoracje, badge i akcje sezonowe sterowane z ELKASS Studio.</small></div><div class="v45-badges">${t.badges.map(b=>`<span class="v45-badge">${b}</span>`).join('')}</div></div>`;
-      target.prepend(div);
-    }
+    // Publiczny sklep nie pokazuje technicznych opisów Theme Engine.
+    // Motyw działa w tle: kolory, badge, dekoracje i efekty są sterowane z panelu.
     if(t.effect==='snow' && !matchMedia('(prefers-reduced-motion: reduce)').matches) addSnow();
     patchFinance(); patchProductLinks();
   }

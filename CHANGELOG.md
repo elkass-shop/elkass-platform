@@ -33,3 +33,13 @@ Każdy kolejny moduł rozwijamy równolegle dla:
 - Dodano Product Builder PRO z finansowaniem, parametrami, mediami i powiązaniami.
 - Dodano dokumentację `docs/studio/V47_STUDIO_COMPLETE.md`.
 - Dodano dokument `docs/platform/WOODYBOY_PLATFORM.md` z założeniem, że ELKASS jest pierwszym wdrożeniem przyszłej platformy WOODYBOY.
+
+
+## Sprint V48/V49 — Home polish + Orders/Search foundation
+
+- poprawiono stylistykę opinii Google,
+- usunięto publiczny opis techniczny Theme Engine ze strony sklepu,
+- przeniesiono sekcję producentów pod kategorie i zmniejszono jej wysokość,
+- dodano fundament Orders & Customer Center,
+- dodano fundament Search + SEO + Performance,
+- dopisano uwagi o przyszłym wydzieleniu modułów do WOODYBOY Core.
