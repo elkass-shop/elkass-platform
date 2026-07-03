@@ -71,7 +71,7 @@
   const shuffled=reviews.map(v=>[Math.random(),v]).sort((a,b)=>a[0]-b[0]).map(v=>v[1]);
   track.innerHTML=shuffled.map(([name,place,text])=>{
     const initials=name.split(' ').map(x=>x[0]).join('').slice(0,2).toUpperCase();
-    return `<article class="trust-review"><div><div class="trust-stars" aria-label="Ocena 5 na 5">${starSvg.repeat(5)}</div><p>“${text}”</p></div><div class="trust-person"><div class="trust-author"><span class="trust-avatar">${initials}</span><div><b>${name}</b><small>📍 ${place}</small></div></div><span class="trust-source trust-source-google"><span class="google-mark">G</span><span>Google</span></span></div></article>`;
+    return `<article class="trust-review"><div><div class="trust-stars" aria-label="Ocena 5 na 5">${starSvg.repeat(5)}</div><p>“${text}”</p></div><div class="trust-person"><div class="trust-author"><span class="trust-avatar">${initials}</span><div><b>${name}</b><small>📍 ${place}</small></div></div><span class="trust-source"><span class="g">G</span> Reviews</span></div></article>`;
   }).join('');
   const prev=document.querySelector('[data-trust-prev]');
   const next=document.querySelector('[data-trust-next]');

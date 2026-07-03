@@ -17,8 +17,9 @@
   function applyTheme(){
     const key=getTheme(); const t=THEMES[key]||THEMES.default; document.body.dataset.theme=key;
     if(new URLSearchParams(location.search).get('theme')) localStorage.setItem('elkass-theme',key);
-    // Publiczny sklep nie pokazuje technicznych opisów Theme Engine.
-    // Motyw działa w tle: kolory, badge, dekoracje i efekty są sterowane z panelu.
+    // Public shop should never show technical Theme Engine description.
+    // Theme visual effects are applied silently; configuration remains inside Studio.
+    document.querySelectorAll('.v45-theme-strip').forEach(el=>el.remove());
     if(t.effect==='snow' && !matchMedia('(prefers-reduced-motion: reduce)').matches) addSnow();
     patchFinance(); patchProductLinks();
   }
