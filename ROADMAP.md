@@ -53,3 +53,10 @@
 - Testy mobile
 - Testy desktop
 - Dokumentacja końcowa
+
+
+## Najbliższe po V52/V53
+
+- V54 — Mobile Premium Pass.
+- V55 — SEO + Performance + Search PRO.
+- V56 — Launch Readiness.

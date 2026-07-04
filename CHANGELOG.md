@@ -45,3 +45,12 @@ Każdy kolejny moduł rozwijamy równolegle dla:
 - Zmniejszono i uspokojono sekcję producentów pod kategoriami.
 - Ukryto publiczne elementy techniczne Theme Engine.
 - Dodano dokumentację sprintu w `docs/project/V50_V51_HOME_TRUST_AND_LAUNCH_QA.md`.
+
+
+## V52/V53 — Visual Experience + Orders & Customer Center
+
+- Dodano Visual Experience Pack: premium polish Home, nową sekcję inspiracji, dopracowanie marek i opinii.
+- Dodano `data/visual-v52.json` jako fundament biblioteki wizualnej.
+- Dodano `/app/orders/` oraz `data/customer-center-v53.json`.
+- Dodano zakładkę Orders w panelu `/admin`.
+- Dopisano dokumentację V52 i V53 oraz uwagę o przyszłym wydzieleniu modułów do WOODYBOY Core.
