@@ -46,11 +46,11 @@ Każdy kolejny moduł rozwijamy równolegle dla:
 - Ukryto publiczne elementy techniczne Theme Engine.
 - Dodano dokumentację sprintu w `docs/project/V50_V51_HOME_TRUST_AND_LAUNCH_QA.md`.
 
+## V54 — Cloud Foundation + Live Product Builder
 
-## V52/V53 — Visual Experience + Orders & Customer Center
-
-- Dodano Visual Experience Pack: premium polish Home, nową sekcję inspiracji, dopracowanie marek i opinii.
-- Dodano `data/visual-v52.json` jako fundament biblioteki wizualnej.
-- Dodano `/app/orders/` oraz `data/customer-center-v53.json`.
-- Dodano zakładkę Orders w panelu `/admin`.
-- Dopisano dokumentację V52 i V53 oraz uwagę o przyszłym wydzieleniu modułów do WOODYBOY Core.
+- Dodano warstwę danych `ElkassCloud`.
+- Dodano konfigurację `config/cloud-config.js` oraz przykład Supabase.
+- Dodano migrację SQL pod Supabase i przyszły WOODYBOY Core.
+- Product Builder w panelu otrzymał działający formularz zapisu produktu.
+- Sklep odczytuje produkty z JSON + localStorage, a po konfiguracji także z Supabase.
+- Dodano dokumentację `docs/studio/CLOUD_FOUNDATION_V54.md`.

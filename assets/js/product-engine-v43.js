@@ -28,6 +28,10 @@
   const productHref = id => '/app/product/?id=' + encodeURIComponent(id);
   async function loadProducts(){
     if(window.ELKASS_PRODUCTS) return window.ELKASS_PRODUCTS;
+    if(window.ElkassCloud && typeof window.ElkassCloud.getProducts === 'function'){
+      window.ELKASS_PRODUCTS = await window.ElkassCloud.getProducts();
+      return window.ELKASS_PRODUCTS;
+    }
     const res = await fetch(PRODUCT_URL, {cache:'no-store'});
     const data = await res.json();
     window.ELKASS_PRODUCTS = data.products || [];

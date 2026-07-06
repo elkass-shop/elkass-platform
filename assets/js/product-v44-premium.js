@@ -6,8 +6,16 @@ const params=new URLSearchParams(location.search);
 const pathId=(location.pathname.split('/').filter(Boolean).pop()||'').replace('.html','');
 const id=params.get('id') || (pathId && !['product','produkt'].includes(pathId) ? pathId : '') || 'tv-samsung-55-crystal-uhd';
 async function load(){
- let data={products:[]}; try{data=await fetch('/data/products.json').then(r=>r.json())}catch(e){console.warn(e)}
- const products=data.products||[]; const product=products.find(p=>p.id===id)||products[0]; if(!product) return;
+ let products=[];
+ try{
+   if(window.ElkassCloud && typeof window.ElkassCloud.getProducts === 'function'){
+     products = await window.ElkassCloud.getProducts();
+   } else {
+     const data = await fetch('/data/products.json', {cache:'no-store'}).then(r=>r.json());
+     products = data.products || [];
+   }
+ }catch(e){console.warn(e)}
+ const product=products.find(p=>p.id===id)||products[0]; if(!product) return;
  const byId=Object.fromEntries(products.map(p=>[p.id,p]));
  render(product,products,byId);
 }
