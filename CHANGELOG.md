@@ -79,3 +79,10 @@ Każdy kolejny moduł rozwijamy równolegle dla:
 - Dodano snapshot publikacji i przywracanie.
 - Dodano walidację projektu przed publikacją.
 - Dodano `data/demo-store-v61.json`.
+
+
+## M2 – ELKASS Premium Design Pass
+- Dodano warstwę `m2-premium-design-pass.css`.
+- Poprawiono Hero, karty produktów, opinie, producentów, kategorię, produkt i mobile.
+- Usunięto z widoku klienta techniczne określenia w sekcjach produktowych.
+- Zachowano kierunek przyszłego wydzielenia do WOODYBOY Core.

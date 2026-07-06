@@ -39,7 +39,7 @@ function render(p, products, byId){
     <div class="thumbs-v44">${imgs.map((im,i)=>`<button class="thumb-v44 ${i?'':'active'}" data-img="${im}"><img src="${im}" alt="${p.name} miniatura ${i+1}"></button>`).join('')}</div>
     <div class="main-photo-v44"><img id="mainPhotoV44" src="${imgs[0]}" alt="${p.name}"><span class="zoom-hint">Kliknij, aby powiększyć</span></div>
    </div>
-   <div class="gallery-note"><span>Smart Media: proporcjonalne kadrowanie</span><span>Miniatury z Product Studio</span><span>Mobile swipe ready</span></div>
+   <div class="gallery-note"><span>Zdjęcia dopasowane do galerii</span><span>Miniatury produktu</span><span>Wygodny podgląd na telefonie</span></div>
   </div>
   <aside class="buybox-v44 premium-panel">
    <div class="badge-row"><span class="badge-v44">${p.badge||'Polecany produkt'}</span><span class="badge-v44 green">${p.brand||'ELKASS'}</span></div>
@@ -49,19 +49,19 @@ function render(p, products, byId){
    <div class="installment-v44">💳 Raty 0% lub dogodne raty od ${Math.max(39,Math.round((p.price||1200)/36))} zł/mies.</div>
    <div class="availability-v44">● ${p.availability||'Dostępny w salonie ELKASS Olesno'}</div>
    <div class="cta-row-v44"><a class="btn-v44 primary" href="/app/cart/?add=${p.id}">Dodaj do koszyka</a><a class="btn-v44 ghost" href="tel:343582442">Zapytaj doradcę</a></div>
-   <div class="finance-v44"><div class="finance-card"><b>Raty 0%</b><small>Okresowo, ustawiane z Finance Builder.</small></div><div class="finance-card"><b>Dogodne raty</b><small>Stała opcja finansowania.</small></div></div>
+   <div class="finance-v44"><div class="finance-card"><b>Raty 0%</b><small>Sprawdź aktualną ofertę w salonie.</small></div><div class="finance-card"><b>Dogodne raty</b><small>Niska rata miesięczna dopasowana do budżetu.</small></div></div>
    <div class="top-params-v44">${top.map((v,i)=>`<div class="param-chip-v44"><small>${['Najważniejsze','Cecha','Parametr','Technologia','Wygoda','ELKASS'][i]||'Parametr'}</small><b>${v}</b></div>`).join('')}</div>
   </aside>
  </section>
  <section class="section-v44"><div class="tabs-v44"><div class="tab-buttons-v44"><button class="active" data-tab="elkass">Opis ELKASS</button><button data-tab="producer">Opis producenta</button><button data-tab="params">Parametry</button><button data-tab="faq">FAQ</button></div>
   <div class="tab-pane-v44 active" data-pane="elkass"><h2>Dlaczego warto wybrać ten model?</h2><p>${p.short||''} W ELKASS dobieramy sprzęt do realnych potrzeb domu: pomieszczenia, budżetu, sposobu używania i dostępnych usług montażu.</p><p>Przed zakupem doradca może pomóc dobrać akcesoria, transport, wniesienie oraz konfigurację.</p></div>
-  <div class="tab-pane-v44" data-pane="producer"><h2>Opis producenta</h2><p>Opis producenta będzie automatycznie formatowany w Product Studio: nagłówki, akapity, listy zalet i czytelne sekcje zamiast ściany tekstu.</p></div>
+  <div class="tab-pane-v44" data-pane="producer"><h2>Opis producenta</h2><p>Pełny opis producenta może zawierać najważniejsze technologie, funkcje oraz wskazówki użytkowania w czytelnych sekcjach.</p></div>
   <div class="tab-pane-v44" data-pane="params"><div class="spec-grid-v44">${renderSpecs(p)}</div></div>
   <div class="tab-pane-v44" data-pane="faq"><h2>Najczęstsze pytania</h2><p><b>Czy produkt można odebrać w salonie?</b><br>Tak, dostępność salonowa będzie ustawiana w panelu.</p><p><b>Czy ELKASS oferuje montaż?</b><br>Tak, montaż i konfiguracja mogą być dodane jako usługa.</p></div>
  </div></section>
- <section class="section-v44"><div class="section-head-v44"><div><h2>Kupowane razem</h2><p>Akcesoria i dodatki dobierane z Product Studio.</p></div></div><div class="product-strip-v44">${renderProducts(bundles.slice(0,4))}</div></section>
+ <section class="section-v44"><div class="section-head-v44"><div><h2>Kupowane razem</h2><p>Dodatki, które najczęściej warto dobrać do tego produktu.</p></div></div><div class="product-strip-v44">${renderProducts(bundles.slice(0,4))}</div></section>
  <section class="section-v44"><div class="section-head-v44"><div><h2>Produkty podobne</h2><p>Ta sama kategoria, podobny budżet lub ta sama marka.</p></div></div><div class="product-strip-v44">${renderProducts(same.slice(0,4))}</div></section>
- <section class="section-v44 advisor-v44"><h2>Ekspert ELKASS poleca</h2><p>Dobierzemy produkt, akcesoria i usługę montażu do Twojego domu — po zapoznaniu się z parametrami i zastosowaniem produktu. Ta sekcja jest niżej, aby nie dominowała nad zakupem.</p></section>
+ <section class="section-v44 advisor-v44"><h2>Ekspert ELKASS pomoże dobrać sprzęt do domu</h2><p>Porównamy modele, dopasujemy akcesoria, doradzimy transport, wniesienie i montaż. Dzięki temu kupujesz sprzęt pasujący do pomieszczenia, budżetu i codziennego użytkowania.</p></section>
  <section class="section-v44 services-v44"><h2>Usługi ELKASS</h2><div class="services-grid-v44"><div class="service-v44"><b>Odbiór w salonie</b><small>ELKASS Olesno</small></div><div class="service-v44"><b>Transport lokalny</b><small>Wniesienie i ustawienie</small></div><div class="service-v44"><b>Montaż</b><small>Dobór i konfiguracja</small></div><div class="service-v44"><b>Serwis</b><small>Wsparcie po zakupie</small></div></div></section>
  <div class="mobile-buybar-v44"><div><small>Cena</small><br><b>${fmt(p.price)}</b></div><a href="/app/cart/?add=${p.id}">Kup</a></div>
  `;

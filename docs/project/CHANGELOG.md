@@ -24,3 +24,10 @@
 - Dodano Media + Home Integration: jedno Media Studio jako źródło grafik strony głównej.
 - Dodano Orders & Customer Center PRO: tablica zamówień, statusy, widok klienta i fundament gwarancji/serwisu.
 - Wszystkie trzy moduły są projektowane jako przyszłe moduły WOODYBOY Core, przy zachowaniu ELKASS jako pierwszego wdrożenia.
+
+
+## M2 – ELKASS Premium Design Pass
+- Dodano warstwę `m2-premium-design-pass.css`.
+- Poprawiono Hero, karty produktów, opinie, producentów, kategorię, produkt i mobile.
+- Usunięto z widoku klienta techniczne określenia w sekcjach produktowych.
+- Zachowano kierunek przyszłego wydzielenia do WOODYBOY Core.
