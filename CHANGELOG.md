@@ -61,3 +61,12 @@ Każdy kolejny moduł rozwijamy równolegle dla:
 - Dodano Media + Home Integration: jedno Media Studio jako źródło grafik strony głównej.
 - Dodano Orders & Customer Center PRO: tablica zamówień, statusy, widok klienta i fundament gwarancji/serwisu.
 - Wszystkie trzy moduły są projektowane jako przyszłe moduły WOODYBOY Core, przy zachowaniu ELKASS jako pierwszego wdrożenia.
+
+## V58/V59/V60 — Live Data, Home Visual Builder, Media Studio
+
+- Product Builder otrzymał realne przyciski: zapisz produkt LIVE, nowy produkt, usuń lokalnie.
+- Dodano Home Visual Builder LIVE: zmiana grafiki Hero, tekstów i wysokości bez edycji kodu.
+- Dodano Media Studio LIVE: testowy upload grafik do localStorage i wybór w Home Builder.
+- Dodano migrację Supabase pod `project_settings` i `media_assets`.
+- Zabezpieczono kartę produktu V44 przed nadpisaniem przez starszy renderer V43.
+- Utrzymano zasadę: ELKASS jako pierwsze wdrożenie, moduły projektowane pod przyszły WOODYBOY Core.

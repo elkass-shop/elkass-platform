@@ -29,3 +29,13 @@ Ten build zawiera V55, V56 i V57:
 - Orders & Customer Center PRO.
 
 Testuj: `/admin`, `/app/home/`, `/app/orders/`.
+
+## V58/V59/V60 — test LIVE
+
+Po wdrożeniu sprawdź:
+
+1. `/admin` → Product Builder PRO → **Zapisz produkt LIVE**.
+2. `/admin` → Home Builder → **Home Visual Builder LIVE**.
+3. `/admin` → Media → **Media Studio LIVE**.
+4. `/app/product/?id=<id-produktu>` — karta produktu powinna wczytać produkt zapisany lokalnie lub z Supabase.
+5. `/app/home/` — zmiany Hero z Home Builder powinny być widoczne w tej samej przeglądarce.

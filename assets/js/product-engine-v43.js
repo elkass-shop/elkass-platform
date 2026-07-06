@@ -95,6 +95,8 @@
   }
   function renderProductPage(products){
     if(!location.pathname.includes('/app/product')) return;
+    // V58: V44 Product Experience has its own renderer (#product-v44). Do not overwrite it with the older v43 renderer.
+    if(document.getElementById('product-v44')) return;
     const byId=Object.fromEntries(products.map(p=>[p.id,p]));
     const pathId=(location.pathname.split('/').filter(Boolean).pop()||'').replace('.html','');
     const id=new URLSearchParams(location.search).get('id') || (pathId && !['product','produkt'].includes(pathId) ? pathId : '') || 'tv-samsung-55-crystal-uhd';
