@@ -70,3 +70,12 @@ Każdy kolejny moduł rozwijamy równolegle dla:
 - Dodano migrację Supabase pod `project_settings` i `media_assets`.
 - Zabezpieczono kartę produktu V44 przed nadpisaniem przez starszy renderer V43.
 - Utrzymano zasadę: ELKASS jako pierwsze wdrożenie, moduły projektowane pod przyszły WOODYBOY Core.
+
+## v61 — M1 Live CMS Production Ready
+
+- Dodano zakładkę `M1 Live CMS` w panelu.
+- Dodano demo content seed.
+- Dodano export/import backup.
+- Dodano snapshot publikacji i przywracanie.
+- Dodano walidację projektu przed publikacją.
+- Dodano `data/demo-store-v61.json`.
