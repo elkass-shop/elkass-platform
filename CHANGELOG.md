@@ -54,3 +54,10 @@ Każdy kolejny moduł rozwijamy równolegle dla:
 - Product Builder w panelu otrzymał działający formularz zapisu produktu.
 - Sklep odczytuje produkty z JSON + localStorage, a po konfiguracji także z Supabase.
 - Dodano dokumentację `docs/studio/CLOUD_FOUNDATION_V54.md`.
+
+## V55/V56/V57 — Visual Builder, Media Integration, Orders PRO
+
+- Dodano Home Visual Builder LIVE: zmiana grafik Hero, kategorii i sekcji Poznaj ELKASS z panelu.
+- Dodano Media + Home Integration: jedno Media Studio jako źródło grafik strony głównej.
+- Dodano Orders & Customer Center PRO: tablica zamówień, statusy, widok klienta i fundament gwarancji/serwisu.
+- Wszystkie trzy moduły są projektowane jako przyszłe moduły WOODYBOY Core, przy zachowaniu ELKASS jako pierwszego wdrożenia.

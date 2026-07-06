@@ -53,3 +53,12 @@
 - Testy mobile
 - Testy desktop
 - Dokumentacja końcowa
+
+
+## Nowe etapy wykonane
+
+- V55 — Home Visual Builder LIVE
+- V56 — Media + Home Integration
+- V57 — Orders & Customer Center PRO
+
+Następnie: V58 Search/SEO PRO oraz V59 Launch Quality Pass.

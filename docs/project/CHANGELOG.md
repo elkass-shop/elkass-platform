@@ -17,3 +17,10 @@
 - Sekcje Home mogą mieć osobne wysokości i odstępy dla desktopu oraz mobile.
 - Dodano kontrolę widoczności sekcji dla desktop/tablet/mobile.
 - Dodano presety: Compact, Standard Premium, Premium Air, Black Week, Boże Narodzenie.
+
+## V55/V56/V57 — Visual Builder, Media Integration, Orders PRO
+
+- Dodano Home Visual Builder LIVE: zmiana grafik Hero, kategorii i sekcji Poznaj ELKASS z panelu.
+- Dodano Media + Home Integration: jedno Media Studio jako źródło grafik strony głównej.
+- Dodano Orders & Customer Center PRO: tablica zamówień, statusy, widok klienta i fundament gwarancji/serwisu.
+- Wszystkie trzy moduły są projektowane jako przyszłe moduły WOODYBOY Core, przy zachowaniu ELKASS jako pierwszego wdrożenia.
