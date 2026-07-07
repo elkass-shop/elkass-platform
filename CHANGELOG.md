@@ -99,3 +99,9 @@ Dodano połączony milestone: Live CMS, Home Builder LIVE, Media Studio LIVE, Vi
 - Dodano sekcję produktów pokazowych z grafikami.
 - Dodano panel M4 Showroom Ready w `/admin`.
 - Dodano dokumentację `docs/project/M4_SHOWROOM_READY.md`.
+
+## M4.1 Stabilization Fix
+- Wyłączono automatyczne dokładanie sekcji Showroom na stronie głównej.
+- Naprawiono kontrast i czytelność Hitu tygodnia.
+- Dodano CSS stabilizacyjny po M4.
+- Showroom pozostaje dostępny jako osobny widok `/app/showroom/`.

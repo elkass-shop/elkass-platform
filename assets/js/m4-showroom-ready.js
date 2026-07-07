@@ -13,8 +13,10 @@
   function productCard(p){return `<article class="m4-card"><div class="m4-card-img"><img src="${p.image}" alt="${p.name}" loading="lazy"></div><div class="m4-card-body"><span class="m4-badge">${p.badge}</span><h3>${p.name}</h3><p>${p.short}</p><div class="m4-price"><strong>${p.price}</strong><s>${p.old}</s></div><a href="/app/product/?id=${p.id}">Zobacz produkt →</a></div></article>`}
   function addHomeShowroom(){
     if(!document.body || document.querySelector('.m4-showroom-banner')) return;
-    const isHome = location.pathname==='/' || location.pathname==='/index.html' || location.pathname.includes('/app/home');
-    if(!isHome) return;
+    // Stabilizacja M4.1: nie dokładamy automatycznie dużych sekcji demo do strony głównej.
+    // Pokaz demo zostaje dostępny w /app/showroom/ albo po ręcznym użyciu ?showroom=1.
+    const canInjectShowroom = location.pathname.includes('/app/showroom') || new URLSearchParams(location.search).get('showroom') === '1';
+    if(!canInjectShowroom) return;
     const main = document.querySelector('main'); if(!main) return;
     const banner = document.createElement('section');
     banner.className = 'm4-showroom-banner';
