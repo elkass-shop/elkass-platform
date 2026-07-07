@@ -108,3 +108,12 @@ Dodano połączony milestone: Live CMS, Home Builder LIVE, Media Studio LIVE, Vi
 - Niższe i szersze Promocje ELKASS.
 - Stabilizacja Hit tygodnia, polecanych produktów, opinii i Znajdź nas.
 - Wyłączone automatyczne doklejanie sekcji Showroom do Home.
+
+## Home Premium Final Lock
+
+- Odtworzono kierunek z wizualizacji Home jako finalny układ strony głównej.
+- Hero jest panoramiczne, niższe i szersze, z kompaktową kolumną usług.
+- Hit tygodnia ma poziomy układ: duży produkt + 4 kompaktowe promocje.
+- Kategorie, marki, promocje, opinie i sekcja „Znajdź nas” otrzymały wspólny system proporcji, cieni, zaokrągleń i odstępów.
+- Dodano osobne reguły mobile, żeby strona główna nie była zwężonym desktopem.
+- Ten etap zamyka wizualizację Home; kolejne prace powinny koncentrować się na danych, produktach, Media Studio i Live CMS.
