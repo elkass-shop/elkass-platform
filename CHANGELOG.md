@@ -91,3 +91,11 @@ Każdy kolejny moduł rozwijamy równolegle dla:
 ## M3 – ELKASS Live Platform
 
 Dodano połączony milestone: Live CMS, Home Builder LIVE, Media Studio LIVE, Visual Builder, Theme Engine LIVE i Design System. Szczegóły: `docs/milestones/M3_LIVE_PLATFORM.md`.
+
+
+## M4 – Showroom Ready Pack
+
+- Dodano wizualny demo content na stronę główną.
+- Dodano sekcję produktów pokazowych z grafikami.
+- Dodano panel M4 Showroom Ready w `/admin`.
+- Dodano dokumentację `docs/project/M4_SHOWROOM_READY.md`.

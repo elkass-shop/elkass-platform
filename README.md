@@ -44,3 +44,8 @@ Po wdrożeniu sprawdź:
 ## M3 – ELKASS Live Platform
 
 Dodano połączony milestone: Live CMS, Home Builder LIVE, Media Studio LIVE, Visual Builder, Theme Engine LIVE i Design System. Szczegóły: `docs/milestones/M3_LIVE_PLATFORM.md`.
+
+
+### M4 Showroom Ready
+
+Projekt zawiera warstwę demonstracyjną, która pozwala pokazać szefowi sklep z produktami, grafikami i sekcjami wizualnymi zamiast pustego szkieletu. Test: `/` oraz `/admin`.
