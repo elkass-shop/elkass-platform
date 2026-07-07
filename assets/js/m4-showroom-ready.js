@@ -12,24 +12,9 @@
   ];
   function productCard(p){return `<article class="m4-card"><div class="m4-card-img"><img src="${p.image}" alt="${p.name}" loading="lazy"></div><div class="m4-card-body"><span class="m4-badge">${p.badge}</span><h3>${p.name}</h3><p>${p.short}</p><div class="m4-price"><strong>${p.price}</strong><s>${p.old}</s></div><a href="/app/product/?id=${p.id}">Zobacz produkt →</a></div></article>`}
   function addHomeShowroom(){
-    if(!document.body || document.querySelector('.m4-showroom-banner')) return;
-    const isHome = location.pathname==='/' || location.pathname==='/index.html' || location.pathname.includes('/app/home');
-    if(!isHome) return;
-    const main = document.querySelector('main'); if(!main) return;
-    const banner = document.createElement('section');
-    banner.className = 'm4-showroom-banner';
-    banner.innerHTML = `<div class="m4-inner"><div><span class="m4-kicker">Demo Store Ready</span><h2>Sklep wypełniony produktami i grafikami</h2><p>Ta wersja służy do pokazania szefowi realnego kierunku: produkty, kategorie, lifestyle, banery i Media Studio są spięte w jedną warstwę demonstracyjną.</p><div class="m4-actions"><a class="m4-btn" href="/app/category/">Zobacz ofertę</a><a class="m4-btn ghost" href="/admin/">Przejdź do panelu</a></div></div><div class="m4-visual"><img src="/assets/gallery/gallery-16-salon-elkass.jpg" alt="Salon ELKASS"><img src="/assets/products/product-05-telewizor-samsung.jpg" alt="Telewizor"><img src="/assets/gallery/gallery-02-piekarniki-agd.jpg" alt="AGD"></div></div>`;
-    const hero = document.querySelector('.hero');
-    if(hero && hero.parentNode) hero.parentNode.insertBefore(banner, hero.nextSibling); else main.prepend(banner);
-    const productsSec = document.createElement('section');
-    productsSec.className='m4-section';
-    productsSec.innerHTML = `<div class="wrap"><div class="m4-head"><div><span class="m4-kicker" style="background:#fff1f2;color:#b5121b;border-color:#ffd6db">Demo Content</span><h2>Produkty, które pokazują sklep „na żywo”</h2><p>Packshoty są już wpięte w karty, linki prowadzą do właściwych produktów, a później podmienisz grafiki z Media Studio bez zmiany układu.</p></div><a class="m4-btn" style="background:#111827;color:#fff" href="/app/promotions/">Wszystkie promocje</a></div><div class="m4-grid">${products.map(productCard).join('')}</div><div class="m4-media-status"><div><b>8</b><span>produktów pokazowych na Home</span></div><div><b>20+</b><span>produktów w demo bazie</span></div><div><b>16</b><span>zdjęć salonu i ekspozycji</span></div><div><b>9</b><span>motywów sezonowych gotowych pod grafiki</span></div></div></div>`;
-    const trust = document.querySelector('#opinie') || document.querySelector('#znajdz-nas');
-    if(trust && trust.parentNode) trust.parentNode.insertBefore(productsSec, trust); else main.appendChild(productsSec);
-    const inspir = document.createElement('section');
-    inspir.className='m4-section';
-    inspir.innerHTML = `<div class="wrap"><div class="m4-head"><div><span class="m4-kicker" style="background:#f4f7fb;color:#111827;border-color:#e5e7eb">ELKASS Identity</span><h2>Salon, doradztwo i lokalna przewaga</h2><p>To miejsce pod prawdziwe zdjęcia ELKASS: salon, ekspozycja, transport, montaż i realizacje u klientów.</p></div></div><div class="m4-inspiration"><article class="m4-story"><img src="/assets/gallery/gallery-14-ekspozycja-sklepu.jpg" alt="Ekspozycja sklepu"><div class="m4-story-copy"><h3>Nie tylko sklep internetowy</h3><p>ELKASS ma pokazywać prawdziwy salon w Oleśnie, doradztwo i obsługę po zakupie — tego nie mają anonimowe markety.</p></div></article><div class="m4-mini-stories"><article class="m4-mini-story"><img src="/assets/gallery/gallery-05-pralki-i-suszarki.jpg" alt="AGD"><div><h4>AGD z dostawą i montażem</h4><p>Produkty mogą mieć zdjęcia aranżacyjne, montażowe i ekspozycyjne.</p></div></article><article class="m4-mini-story"><img src="/assets/gallery/gallery-08-rtv-telewizory.jpg" alt="RTV"><div><h4>RTV w realnej ekspozycji</h4><p>Hero, kategorie i promocje mogą korzystać z jednej biblioteki mediów.</p></div></article><article class="m4-mini-story"><img src="/assets/banners/raty-0.jpg" alt="Raty"><div><h4>Promocje i raty</h4><p>Raty 0% i dogodne raty pozostają osobnymi mechanizmami w panelu.</p></div></article></div></div></div>`;
-    if(trust && trust.parentNode) trust.parentNode.insertBefore(inspir, trust); else main.appendChild(inspir);
+    /* M4.3: Showroom demo is no longer injected into the public Home.
+       Demo remains available in /app/showroom/ and admin. */
+    return;
   }
   function addAdminShowroom(){
     if(!location.pathname.includes('/admin')) return;

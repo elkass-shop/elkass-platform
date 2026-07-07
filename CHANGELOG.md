@@ -100,11 +100,11 @@ Dodano połączony milestone: Live CMS, Home Builder LIVE, Media Studio LIVE, Vi
 - Dodano panel M4 Showroom Ready w `/admin`.
 - Dodano dokumentację `docs/project/M4_SHOWROOM_READY.md`.
 
-## M4.2 – Home Stabilization Fix
-- Wyłączono automatyczne doklejanie Showroom na stronie głównej; pozostaje osobno w `/app/showroom/`.
-- Hero używa czystej grafiki bez wtopionych napisów/statystyk.
-- Przywrócono czytelność sekcji Hit tygodnia.
-- Naprawiono ścieżki obrazków w pasku promocji.
-- Zwężono i wyrównano „Promocje wybrane przez ELKASS”.
-- Uspokojono stylistykę opinii Google.
-- Przebudowano „Znajdź nas” z mapą jako jedną spójną sekcję.
+
+## M4.3 – Home Premium Redesign
+
+- Panoramiczne, niższe Hero.
+- Czyste tło Hero bez wtopionych napisów i statystyk.
+- Niższe i szersze Promocje ELKASS.
+- Stabilizacja Hit tygodnia, polecanych produktów, opinii i Znajdź nas.
+- Wyłączone automatyczne doklejanie sekcji Showroom do Home.
