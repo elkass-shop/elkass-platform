@@ -1,28 +1,29 @@
-# WOODYBOY — notatki platformowe
+# WOODYBOY Platform – notatki architektoniczne
 
-ELKASS pozostaje pierwszym wdrożeniem, ale nowe moduły są projektowane tak, aby później można było wydzielić je do WOODYBOY Core.
+ELKASS pozostaje pierwszym wdrożeniem produkcyjnym. WOODYBOY ma być docelową platformą nadrzędną, do której po zakończeniu ELKASS 1.0 zostaną wydzielone uniwersalne moduły.
 
-## Moduły kandydaci do WOODYBOY Core
+## Zasada
 
-- Product Engine
+Funkcje codziennego zarządzania sklepem nie powinny być zależne od marki ELKASS. Dane marki, lokalne usługi, kolory i treści pozostają konfiguracją projektu.
+
+## Kandydaci do WOODYBOY Core
+
+- Live CMS
 - Product Builder
+- Home Builder
+- Layout Builder
 - Media Studio
 - Theme Engine
-- Layout Builder
+- Finance Builder
 - Orders Engine
 - Customer Center
 - Search Engine
-- SEO Engine
+- SEO Studio
 
-## Warstwa projektu ELKASS
+## Elementy specyficzne dla ELKASS
 
-- kolory i motyw ELKASS,
-- dane firmy,
-- lokalne usługi,
-- produkty i kategorie,
-- treści i zdjęcia salonu,
-- opinie lokalne.
-
-## Zasada projektowa
-
-Każda nowa tabela i moduł powinny mieć identyfikator projektu (`project_slug` lub `project_id`), aby w przyszłości można było obsłużyć wiele sklepów bez przebudowy całego systemu.
+- lokalne usługi Olesno,
+- salon przy ul. Armii Krajowej 5,
+- treści marki ELKASS,
+- zdjęcia salonu i zespołu,
+- lokalny transport, wniesienie, montaż i serwis.

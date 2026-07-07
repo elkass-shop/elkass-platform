@@ -39,3 +39,8 @@ Po wdrożeniu sprawdź:
 3. `/admin` → Media → **Media Studio LIVE**.
 4. `/app/product/?id=<id-produktu>` — karta produktu powinna wczytać produkt zapisany lokalnie lub z Supabase.
 5. `/app/home/` — zmiany Hero z Home Builder powinny być widoczne w tej samej przeglądarce.
+
+
+## M3 – ELKASS Live Platform
+
+Dodano połączony milestone: Live CMS, Home Builder LIVE, Media Studio LIVE, Visual Builder, Theme Engine LIVE i Design System. Szczegóły: `docs/milestones/M3_LIVE_PLATFORM.md`.

@@ -86,3 +86,8 @@ Każdy kolejny moduł rozwijamy równolegle dla:
 - Poprawiono Hero, karty produktów, opinie, producentów, kategorię, produkt i mobile.
 - Usunięto z widoku klienta techniczne określenia w sekcjach produktowych.
 - Zachowano kierunek przyszłego wydzielenia do WOODYBOY Core.
+
+
+## M3 – ELKASS Live Platform
+
+Dodano połączony milestone: Live CMS, Home Builder LIVE, Media Studio LIVE, Visual Builder, Theme Engine LIVE i Design System. Szczegóły: `docs/milestones/M3_LIVE_PLATFORM.md`.

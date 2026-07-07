@@ -62,3 +62,8 @@
 - V57 — Orders & Customer Center PRO
 
 Następnie: V58 Search/SEO PRO oraz V59 Launch Quality Pass.
+
+
+## M3 – ELKASS Live Platform
+
+Dodano połączony milestone: Live CMS, Home Builder LIVE, Media Studio LIVE, Visual Builder, Theme Engine LIVE i Design System. Szczegóły: `docs/milestones/M3_LIVE_PLATFORM.md`.
