@@ -115,3 +115,11 @@ Dodano połączony milestone: Live CMS, Home Builder LIVE, Media Studio LIVE, Vi
 - Dodano prosty ELKASS Studio LIVE dla produktów, grafik Home i Media Studio.
 - Produkty dodane w panelu pojawiają się na stronie i otwierają kartę produktu.
 - Dodano dokumentację `docs/project/ELKASS_HOME_V2_LIVE_FINAL.md`.
+
+## F1 — ELKASS Frontend Rebuild Red System + LIVE Studio
+- Przebudowano Home na mocniejszy czerwono-czarny system wizualny.
+- Dodano więcej czerwonych akcentów: topbar, sekcje, CTA, karty, statystyki, stopka.
+- Podmieniono pasek marek na prawdziwe logotypy z `assets/logos`.
+- Rozbudowano stopkę o sekcje Oferta, Usługi, Obsługa klienta, Informacje.
+- Zachowano LIVE Studio: dodawanie produktów, zmiana Hero, zdjęcia salonu i Media Studio.
+- Media Studio dostało przyciski: użyj jako Hero, użyj jako salon, użyj do produktu.
