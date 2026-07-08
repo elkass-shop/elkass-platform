@@ -109,11 +109,9 @@ Dodano połączony milestone: Live CMS, Home Builder LIVE, Media Studio LIVE, Vi
 - Stabilizacja Hit tygodnia, polecanych produktów, opinii i Znajdź nas.
 - Wyłączone automatyczne doklejanie sekcji Showroom do Home.
 
-## M5 — Morning Demo Final
 
-- Przebudowano Home na czysty layout premium.
-- Dodano Design Engine z motywami: Premium, Black Week, Christmas, Spring.
-- Dodano prosty panel `/admin/` dla laika.
-- Dodano lokalny zapis zmian Home i produktów.
-- Dodano podgląd produktów dodanych z panelu na stronie produktu.
-- Dodano dokumentację pod WOODYBOY Platform.
+## Home v2 LIVE Final
+- Przepisano Home od podstaw w nowym standardzie premium.
+- Dodano prosty ELKASS Studio LIVE dla produktów, grafik Home i Media Studio.
+- Produkty dodane w panelu pojawiają się na stronie i otwierają kartę produktu.
+- Dodano dokumentację `docs/project/ELKASS_HOME_V2_LIVE_FINAL.md`.

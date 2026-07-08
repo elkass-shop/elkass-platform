@@ -1,26 +1,29 @@
-# WOODYBOY Platform — notatki architektoniczne
+# WOODYBOY Platform – notatki architektoniczne
 
-ELKASS jest pierwszym wdrożeniem. WOODYBOY ma być nadrzędną platformą, która w przyszłości będzie tworzyć kolejne sklepy.
-
-## Warstwa wspólna WOODYBOY Core
-
-- Product Engine
-- Media Studio
-- Design Engine
-- Theme Engine
-- Layout Builder
-- Home Builder
-- Orders Engine
-- Customer Center
-
-## Warstwa projektu ELKASS
-
-- Produkty i ceny ELKASS
-- Dane salonu Olesno
-- Lokalny transport i montaż
-- Motyw ELKASS Premium
-- Opinie lokalnych klientów
+ELKASS pozostaje pierwszym wdrożeniem produkcyjnym. WOODYBOY ma być docelową platformą nadrzędną, do której po zakończeniu ELKASS 1.0 zostaną wydzielone uniwersalne moduły.
 
 ## Zasada
 
-Nowe funkcje tworzymy tak, aby działały najpierw w ELKASS, ale mogły zostać wydzielone do WOODYBOY Core bez przepisywania całej logiki.
+Funkcje codziennego zarządzania sklepem nie powinny być zależne od marki ELKASS. Dane marki, lokalne usługi, kolory i treści pozostają konfiguracją projektu.
+
+## Kandydaci do WOODYBOY Core
+
+- Live CMS
+- Product Builder
+- Home Builder
+- Layout Builder
+- Media Studio
+- Theme Engine
+- Finance Builder
+- Orders Engine
+- Customer Center
+- Search Engine
+- SEO Studio
+
+## Elementy specyficzne dla ELKASS
+
+- lokalne usługi Olesno,
+- salon przy ul. Armii Krajowej 5,
+- treści marki ELKASS,
+- zdjęcia salonu i zespołu,
+- lokalny transport, wniesienie, montaż i serwis.
