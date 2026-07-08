@@ -123,3 +123,12 @@ Dodano połączony milestone: Live CMS, Home Builder LIVE, Media Studio LIVE, Vi
 - Usunięto zbędne opisy przy sekcjach Home przez finalny CSS.
 - Powiększono pasek producentów i rozszerzono listę marek.
 - Zachowano ELKASS Studio LIVE: dodawanie produktów, grafik, podmiana Hero i zdjęcia salonu.
+
+## F3 Final Frontend Correction
+- Wyśrodkowane menu główne.
+- Hero obniżone i bardziej panoramiczne.
+- Usunięte zbędne opisy przy kategoriach/promocjach/produktach.
+- Kategorie powiększone.
+- Hit tygodnia przywrócony jako pełna sekcja 70/30 z produktami pobieranymi z danych lub fallbacku.
+- Większy pasek producentów z prawdziwymi logotypami.
+- Zachowany LIVE CMS: produkty/grafiki z panelu nadal działają przez localStorage/Supabase fallback.
