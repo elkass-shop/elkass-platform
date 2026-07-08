@@ -110,16 +110,16 @@ Dodano połączony milestone: Live CMS, Home Builder LIVE, Media Studio LIVE, Vi
 - Wyłączone automatyczne doklejanie sekcji Showroom do Home.
 
 
-## Home v2 LIVE Final
-- Przepisano Home od podstaw w nowym standardzie premium.
-- Dodano prosty ELKASS Studio LIVE dla produktów, grafik Home i Media Studio.
-- Produkty dodane w panelu pojawiają się na stronie i otwierają kartę produktu.
-- Dodano dokumentację `docs/project/ELKASS_HOME_V2_LIVE_FINAL.md`.
+## Final Home + Live CMS
+- Panoramiczny Home jako czysty layout.
+- Prosty panel dodawania produktów i grafik.
+- Hero i zdjęcie salonu zmieniane z panelu.
+- Zachowane dane i wcześniejsze moduły repo.
 
-## F1 — ELKASS Frontend Rebuild Red System + LIVE Studio
-- Przebudowano Home na mocniejszy czerwono-czarny system wizualny.
-- Dodano więcej czerwonych akcentów: topbar, sekcje, CTA, karty, statystyki, stopka.
-- Podmieniono pasek marek na prawdziwe logotypy z `assets/logos`.
-- Rozbudowano stopkę o sekcje Oferta, Usługi, Obsługa klienta, Informacje.
-- Zachowano LIVE Studio: dodawanie produktów, zmiana Hero, zdjęcia salonu i Media Studio.
-- Media Studio dostało przyciski: użyj jako Hero, użyj jako salon, użyj do produktu.
+
+## F2 – Final Compact Pass
+- Zmniejszono pionowe odstępy na stronie głównej.
+- Hero jest niższe i bardziej panoramiczne.
+- Usunięto zbędne opisy przy sekcjach Home przez finalny CSS.
+- Powiększono pasek producentów i rozszerzono listę marek.
+- Zachowano ELKASS Studio LIVE: dodawanie produktów, grafik, podmiana Hero i zdjęcia salonu.
