@@ -1,3 +1,10 @@
+
+
+## Home Final 1:1 Visual Rebuild
+- Przepisano stronę główną jako czysty layout zgodny z zaakceptowaną wizualizacją.
+- Zachowano dane, linki produktów, kategorie, grafiki i ścieżki z repo.
+- Dodano osobny CSS `assets/css/home-final-1to1.css`, bez dokładania kolejnych konfliktujących łatek.
+- Desktop i mobile mają osobne proporcje, z poziomymi sliderami na mobile.
 # CHANGELOG — ELKASS Platform
 
 ## V49.1 — Home polish
@@ -108,12 +115,3 @@ Dodano połączony milestone: Live CMS, Home Builder LIVE, Media Studio LIVE, Vi
 - Niższe i szersze Promocje ELKASS.
 - Stabilizacja Hit tygodnia, polecanych produktów, opinii i Znajdź nas.
 - Wyłączone automatyczne doklejanie sekcji Showroom do Home.
-
-## Home Premium Final Lock
-
-- Odtworzono kierunek z wizualizacji Home jako finalny układ strony głównej.
-- Hero jest panoramiczne, niższe i szersze, z kompaktową kolumną usług.
-- Hit tygodnia ma poziomy układ: duży produkt + 4 kompaktowe promocje.
-- Kategorie, marki, promocje, opinie i sekcja „Znajdź nas” otrzymały wspólny system proporcji, cieni, zaokrągleń i odstępów.
-- Dodano osobne reguły mobile, żeby strona główna nie była zwężonym desktopem.
-- Ten etap zamyka wizualizację Home; kolejne prace powinny koncentrować się na danych, produktach, Media Studio i Live CMS.
