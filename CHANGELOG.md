@@ -1,10 +1,3 @@
-
-
-## Home Final 1:1 Visual Rebuild
-- Przepisano stronę główną jako czysty layout zgodny z zaakceptowaną wizualizacją.
-- Zachowano dane, linki produktów, kategorie, grafiki i ścieżki z repo.
-- Dodano osobny CSS `assets/css/home-final-1to1.css`, bez dokładania kolejnych konfliktujących łatek.
-- Desktop i mobile mają osobne proporcje, z poziomymi sliderami na mobile.
 # CHANGELOG — ELKASS Platform
 
 ## V49.1 — Home polish
@@ -115,3 +108,12 @@ Dodano połączony milestone: Live CMS, Home Builder LIVE, Media Studio LIVE, Vi
 - Niższe i szersze Promocje ELKASS.
 - Stabilizacja Hit tygodnia, polecanych produktów, opinii i Znajdź nas.
 - Wyłączone automatyczne doklejanie sekcji Showroom do Home.
+
+## M5 — Morning Demo Final
+
+- Przebudowano Home na czysty layout premium.
+- Dodano Design Engine z motywami: Premium, Black Week, Christmas, Spring.
+- Dodano prosty panel `/admin/` dla laika.
+- Dodano lokalny zapis zmian Home i produktów.
+- Dodano podgląd produktów dodanych z panelu na stronie produktu.
+- Dodano dokumentację pod WOODYBOY Platform.
