@@ -1,16 +1,26 @@
 (function(){
 const $=(s,r=document)=>r.querySelector(s); const $$=(s,r=document)=>Array.from(r.querySelectorAll(s));
 const toast=t=>{const el=$('#toast'); if(!el)return; el.textContent=t; el.style.display='block'; setTimeout(()=>el.style.display='none',2400)};
-const mediaKey='elkass.media.v60'; const authKey='elkass.auth.session.v1'; const usersKey='elkass.auth.users.v1'; const brandsKey='elkass.brands.v1';
+const mediaKey='elkass.media.v60'; const authKey='elkass.auth.session.v1'; const usersKey='elkass.auth.users.v1'; const brandsKey='elkass.brands.v1'; const categoriesKey='elkass.categories.v1'; const themeKey='elkass.theme.v1';
 const defaults=[{email:'admin@elkass.pl',password:'admin123',name:'Administrator',role:'admin'},{email:'mod@elkass.pl',password:'mod123',name:'Moderator',role:'moderator'}];
 const read=(k,f)=>{try{return JSON.parse(localStorage.getItem(k)||JSON.stringify(f))}catch(e){return f}}; const write=(k,v)=>localStorage.setItem(k,JSON.stringify(v));
 const readMedia=()=>read(mediaKey,[]); const writeMedia=v=>write(mediaKey,v||[]);
 const defaultBrands=['Samsung','Bosch','LG','Beko','Amica','Philips','Sony','Lenovo','Whirlpool','Electrolux','Tefal','JBL','Siemens','Sharp','TCL','Hisense','Gorenje','Xiaomi','AEG','Panasonic','Remington','Blaupunkt','Kernau','Sencor','Manta','Philco','DeLonghi','Miele','Liebherr','Haier','Candy'];
+const defaultCategories=[
+ {name:'RTV',description:'Telewizory, audio, kino domowe',image:'/assets/categories/clean-rtv.jpg',subcategories:['Telewizory','Soundbary','Kino domowe','Projektory','Dekodery','Akcesoria RTV']},
+ {name:'AGD',description:'Pralki, lodówki, zmywarki',image:'/assets/categories/clean-agd.jpg',subcategories:['Pralki ładowane od frontu','Pralki slim','Suszarki','Lodówki','Zmywarki','Zamrażarki']},
+ {name:'Do zabudowy',description:'Kuchnia kompletna',image:'/assets/categories/clean-agd-zabudowa.jpg',subcategories:['Piekarniki','Płyty indukcyjne','Okapy','Zmywarki do zabudowy','Lodówki do zabudowy','Mikrofalówki']},
+ {name:'Małe AGD',description:'Ekspresy, odkurzacze, roboty',image:'/assets/categories/clean-male-agd.jpg',subcategories:['Ekspresy do kawy','Odkurzacze','Roboty kuchenne','Czajniki','Blendery','Żelazka']},
+ {name:'Komputery',description:'Laptopy, smartfony, tablety',image:'/assets/categories/clean-komputery-telefony.jpg',subcategories:['Laptopy','Smartfony','Tablety','Monitory','Drukarki','Akcesoria komputerowe']},
+ {name:'Usługi',description:'Montaż, transport, konfiguracja',image:'/assets/categories/clean-serwis.jpg',subcategories:['Transport','Wniesienie','Montaż AGD','Konfiguracja TV','Serwis','Doradztwo']}
+];
 const readBrands=()=>read(brandsKey,defaultBrands); const writeBrands=v=>write(brandsKey,v&&v.length?v:defaultBrands);
+const readCategories=()=>read(categoriesKey,defaultCategories); const writeCategories=v=>write(categoriesKey,v&&v.length?v:defaultCategories);
+const readTheme=()=>read(themeKey,{theme:'premium',message:'',decorations:true}); const writeTheme=v=>write(themeKey,v||{theme:'premium'});
 const readUsers=()=>{let u=read(usersKey,null); if(!u){u=defaults; write(usersKey,u)} return u}; const writeUsers=u=>write(usersKey,u||defaults);
 const session=()=>read(authKey,null); const setSession=u=>write(authKey,u); const clearSession=()=>localStorage.removeItem(authKey);
 function current(){return session()} function isAdmin(){return current()?.role==='admin'} function canDelete(){return isAdmin()}
-function showApp(){ const u=current(); if(!u){$('#loginView')?.classList.remove('hidden'); $('#studioView')?.classList.add('hidden'); return;} $('#loginView')?.classList.add('hidden'); $('#studioView')?.classList.remove('hidden'); $('#userName').textContent=u.name||u.email; $('#userRole').textContent=u.role==='admin'?'Administrator':'Moderator'; $$('[data-admin-only]').forEach(x=>x.style.display=isAdmin()?'block':'none'); renderUsers(); renderMedia(); renderProducts(); renderBrandsAdmin(); }
+function showApp(){ const u=current(); if(!u){$('#loginView')?.classList.remove('hidden'); $('#studioView')?.classList.add('hidden'); return;} $('#loginView')?.classList.add('hidden'); $('#studioView')?.classList.remove('hidden'); $('#userName').textContent=u.name||u.email; $('#userRole').textContent=u.role==='admin'?'Administrator':'Moderator'; $$('[data-admin-only]').forEach(x=>x.style.display=isAdmin()?'block':'none'); renderUsers(); renderMedia(); renderProducts(); renderBrandsAdmin(); renderCategoryBuilder(); renderThemeBuilder(); populateProductTaxonomy(); }
 function auth(){
  $('#loginForm')?.addEventListener('submit',e=>{e.preventDefault(); const fd=new FormData(e.currentTarget); const email=String(fd.get('email')||'').trim().toLowerCase(); const pass=String(fd.get('password')||''); const user=readUsers().find(u=>u.email.toLowerCase()===email&&u.password===pass); if(!user)return toast('Nieprawidłowy email lub hasło'); setSession({email:user.email,name:user.name,role:user.role}); toast('Zalogowano do ELKASS Studio'); showApp();});
  $('#showReset')?.addEventListener('click',()=>$('#resetForm')?.classList.toggle('hidden'));
@@ -21,9 +31,20 @@ function tabs(){ $$('aside [data-tab]').forEach(b=>b.onclick=()=>{if(b.dataset.t
 async function getProducts(){ return window.ElkassCloud?.getProducts ? await window.ElkassCloud.getProducts() : [] }
 function slug(s){ return String(s||'produkt').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/ł/g,'l').replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,'') || 'produkt-'+Date.now(); }
 async function renderProducts(){ const list=await getProducts(); const count=$('#countProducts'); if(count)count.textContent=list.length; const box=$('#productList'); if(!box)return; box.innerHTML=list.map(p=>`<div class="row" data-id="${p.id}"><img src="${p.image||'/assets/products/product-05-telewizor-samsung.jpg'}"><div><b>${p.name}</b><small>${p.brand||''} • ${p.category||''} • ${p.price||0} zł</small></div><button type="button" data-edit="${p.id}">Edytuj</button><button type="button" data-delete="${p.id}">Usuń</button><a href="/app/product/?id=${encodeURIComponent(p.id)}" target="_blank">Otwórz</a></div>`).join('');
- $$('[data-edit]',box).forEach(btn=>btn.onclick=()=>{const p=list.find(x=>x.id===btn.dataset.edit); if(!p)return; const f=$('#productForm'); ['id','name','brand','category','price','oldPrice','badge','image','short'].forEach(k=>{if(f.elements[k]) f.elements[k].value=p[k]||''}); if(f.elements.features) f.elements.features.value=(p.features||[]).join('\n'); toast('Produkt wczytany do edycji');});
+ $$('[data-edit]',box).forEach(btn=>btn.onclick=()=>{const p=list.find(x=>x.id===btn.dataset.edit); if(!p)return; const f=$('#productForm'); ['id','name','brand','category','subcategory','series','price','oldPrice','badge','status','image','short'].forEach(k=>{if(f.elements[k]) f.elements[k].value=p[k]||''});
+ if(f.elements.status) f.elements.status.value=p.status||'published';
+ if(f.elements.showHome) f.elements.showHome.checked=p.showHome!==false;
+ if(f.elements.isPromo) f.elements.isPromo.checked=!!p.isPromo;
+ if(f.elements.isHit) f.elements.isHit.checked=!!p.isHit;
+ if(f.elements.isOutlet) f.elements.isOutlet.checked=!!p.isOutlet;
+ if(f.elements.isNew) f.elements.isNew.checked=!!p.isNew;
+ populateProductSubcategories(p.category,p.subcategory);
+ if(f.elements.features) f.elements.features.value=(p.features||[]).join('\n'); toast('Produkt wczytany do edycji');});
  $$('[data-delete]',box).forEach(btn=>btn.onclick=async()=>{if(!canDelete())return toast('Moderator nie może usuwać produktów'); if(!confirm('Usunąć produkt z lokalnej bazy?'))return; await window.ElkassCloud.deleteLocalProduct(btn.dataset.delete); toast('Produkt usunięty'); renderProducts();}); }
-function formProduct(){ $('#productForm')?.addEventListener('submit',async e=>{e.preventDefault(); const fd=new FormData(e.currentTarget); const p=Object.fromEntries(fd.entries()); p.id=p.id||slug(p.name); p.price=Number(String(p.price).replace(',','.'))||0; p.oldPrice=Number(String(p.oldPrice).replace(',','.'))||undefined; p.features=String(p.features||'').split('\n').map(x=>x.trim()).filter(Boolean); p.images=[p.image].filter(Boolean); await window.ElkassCloud.saveProduct(p); toast('Produkt zapisany i widoczny na stronie'); renderProducts(); }); $('#newProduct')?.addEventListener('click',()=>{$('#productForm').reset(); toast('Formularz wyczyszczony')}); }
+function formProduct(){ $('#productForm')?.addEventListener('submit',async e=>{e.preventDefault(); const fd=new FormData(e.currentTarget); const p=Object.fromEntries(fd.entries()); p.id=p.id||slug(p.name); p.price=Number(String(p.price).replace(',','.'))||0; p.oldPrice=Number(String(p.oldPrice).replace(',','.'))||undefined; p.features=String(p.features||'').split('\n').map(x=>x.trim()).filter(Boolean); p.images=[p.image].filter(Boolean);
+ p.showHome=fd.get('showHome')==='on'; p.isPromo=fd.get('isPromo')==='on'; p.isHit=fd.get('isHit')==='on'; p.isOutlet=fd.get('isOutlet')==='on'; p.isNew=fd.get('isNew')==='on'; p.status=p.status||'published'; p.is_active=p.status!=='draft';
+ if(!p.subcategory) p.subcategory='';
+ await window.ElkassCloud.saveProduct(p); toast('Produkt zapisany i widoczny na stronie'); renderProducts(); }); $('#newProduct')?.addEventListener('click',()=>{$('#productForm').reset(); toast('Formularz wyczyszczony')}); }
 function renderMedia(){ const m=readMedia(); const c=$('#countMedia'); if(c)c.textContent=m.length; const box=$('#mediaGrid'); if(!box)return; box.innerHTML=m.map((x,i)=>`<button data-i="${i}" title="${x.name||'grafika'}"><img src="${x.url}"><small>${x.name||'grafika'}</small></button>`).join(''); $$('#mediaGrid button').forEach(b=>b.onclick=()=>{$$('#mediaGrid button').forEach(x=>x.classList.remove('active')); b.classList.add('active')}); }
 function mediaUpload(){ $('#mediaFile')?.addEventListener('change',e=>{const f=e.target.files[0]; if(!f)return; const r=new FileReader(); r.onload=()=>{const m=readMedia(); m.unshift({name:f.name,url:r.result,type:f.type,createdAt:new Date().toISOString()}); writeMedia(m); renderMedia(); toast('Grafika dodana do biblioteki');}; r.readAsDataURL(f);}); }
 function selectedMedia(){ const b=$('#mediaGrid button.active'); if(!b)return null; return readMedia()[Number(b.dataset.i)] }
@@ -32,7 +53,33 @@ function homeForm(){ $('#homeForm')?.addEventListener('submit',async e=>{e.preve
 function renderUsers(){ const users=readUsers(); const count=$('#countUsers'); if(count)count.textContent=users.length; const box=$('#usersList'); if(!box)return; box.innerHTML=users.map(u=>`<div class="row"><div><b>${u.name||u.email}</b><small>${u.email} • ${u.role}</small></div>${u.email==='admin@elkass.pl'?'':'<button data-user-delete="'+u.email+'">Usuń</button>'}</div>`).join(''); $$('[data-user-delete]',box).forEach(b=>b.onclick=()=>{if(!isAdmin())return toast('Tylko admin'); writeUsers(readUsers().filter(u=>u.email!==b.dataset.userDelete)); renderUsers(); toast('Użytkownik usunięty');}); }
 function renderBrandsAdmin(){ const box=$('#brandList'); if(!box)return; const list=readBrands(); box.innerHTML=list.map((b,i)=>`<div class="brand-pill"><b>${b}</b><button data-brand-del="${i}" type="button">Usuń</button></div>`).join(''); $$('[data-brand-del]',box).forEach(btn=>btn.onclick=()=>{const arr=readBrands(); arr.splice(Number(btn.dataset.brandDel),1); writeBrands(arr); renderBrandsAdmin(); toast('Marka usunięta z paska');});}
 function brandForm(){ $('#brandForm')?.addEventListener('submit',e=>{e.preventDefault(); const name=String(new FormData(e.currentTarget).get('name')||'').trim(); if(!name)return toast('Podaj nazwę producenta'); const list=readBrands(); if(!list.some(x=>x.toLowerCase()===name.toLowerCase())) list.push(name); writeBrands(list); e.currentTarget.reset(); renderBrandsAdmin(); toast('Producent dodany do ruchomego paska');}); $('#restoreBrands')?.addEventListener('click',()=>{writeBrands(defaultBrands); renderBrandsAdmin(); toast('Przywrócono pełną listę producentów');});}
+
+function populateProductSubcategories(category, selected){
+ const sub=$('#productSubcategory'); if(!sub) return; const cats=readCategories(); const cat=cats.find(c=>c.name===category)||cats[0]; const arr=(cat?.subcategories||[]); sub.innerHTML='<option value="">Bez podkategorii</option>'+arr.map(x=>`<option value="${x}">${x}</option>`).join(''); if(selected) sub.value=selected;
+}
+function populateProductTaxonomy(){
+ const brand=$('#productBrand'); if(brand){ const current=brand.value; brand.innerHTML=readBrands().map(x=>`<option value="${x}">${x}</option>`).join(''); if(current) brand.value=current; }
+ const cat=$('#productCategory'); if(cat){ const current=cat.value; const cats=readCategories(); cat.innerHTML=cats.map(x=>`<option value="${x.name}">${x.name}</option>`).join(''); if(current) cat.value=current; populateProductSubcategories(cat.value,$('#productSubcategory')?.value); cat.onchange=()=>populateProductSubcategories(cat.value,''); }
+ const parent=$('#subcategoryParent'); if(parent){ const current=parent.value; parent.innerHTML=readCategories().map(x=>`<option value="${x.name}">${x.name}</option>`).join(''); if(current) parent.value=current; }
+}
+function renderCategoryBuilder(){
+ populateProductTaxonomy();
+ const box=$('#categoryTree'); if(!box) return; const cats=readCategories();
+ box.innerHTML=cats.map((c,i)=>`<div class="cat-admin"><div><b>${c.name}</b><small>${c.description||''}</small></div><button type="button" data-cat-del="${i}">Usuń</button><ul>${(c.subcategories||[]).map((s,j)=>`<li>${s}<button type="button" data-sub-del="${i}:${j}">×</button></li>`).join('')}</ul></div>`).join('');
+ $$('[data-cat-del]',box).forEach(b=>b.onclick=()=>{ if(!isAdmin()) return toast('Tylko administrator może usuwać kategorie'); const arr=readCategories(); arr.splice(Number(b.dataset.catDel),1); writeCategories(arr); renderCategoryBuilder(); toast('Kategoria usunięta'); });
+ $$('[data-sub-del]',box).forEach(b=>b.onclick=()=>{ const [i,j]=b.dataset.subDel.split(':').map(Number); const arr=readCategories(); arr[i].subcategories.splice(j,1); writeCategories(arr); renderCategoryBuilder(); toast('Podkategoria usunięta'); });
+}
+function categoryForms(){
+ $('#categoryForm')?.addEventListener('submit',e=>{e.preventDefault(); const data=Object.fromEntries(new FormData(e.currentTarget).entries()); const arr=readCategories(); if(!arr.some(c=>c.name.toLowerCase()===String(data.name).toLowerCase())) arr.push({name:data.name,description:data.description||'',image:data.image||'/assets/categories/clean-rtv.jpg',subcategories:[]}); writeCategories(arr); e.currentTarget.reset(); renderCategoryBuilder(); toast('Kategoria dodana');});
+ $('#subcategoryForm')?.addEventListener('submit',e=>{e.preventDefault(); const data=Object.fromEntries(new FormData(e.currentTarget).entries()); const arr=readCategories(); const cat=arr.find(c=>c.name===data.parent); if(cat && data.name && !cat.subcategories.includes(data.name)) cat.subcategories.push(data.name); writeCategories(arr); e.currentTarget.reset(); renderCategoryBuilder(); toast('Podkategoria dodana');});
+ $('#restoreCategories')?.addEventListener('click',()=>{writeCategories(defaultCategories); renderCategoryBuilder(); toast('Przywrócono pełne kategorie i podkategorie');});
+}
+function renderThemeBuilder(){
+ const t=readTheme(); const f=$('#themeForm'); if(f){ if(f.elements.theme) f.elements.theme.value=t.theme||'premium'; if(f.elements.message) f.elements.message.value=t.message||''; if(f.elements.decorations) f.elements.decorations.checked=t.decorations!==false; }
+ const box=$('#themePreview'); if(box) box.innerHTML=`<div class="theme-card theme-${t.theme||'premium'}"><b>${(t.theme||'premium').toUpperCase()}</b><span>${t.message||'Motyw gotowy do publikacji'}</span></div>`;
+}
+function themeForm(){ $('#themeForm')?.addEventListener('submit',async e=>{e.preventDefault(); const fd=new FormData(e.currentTarget); const val={theme:fd.get('theme'),message:fd.get('message')||'',decorations:fd.get('decorations')==='on',updatedAt:new Date().toISOString()}; writeTheme(val); await window.ElkassCloud?.saveSetting?.('theme',val); renderThemeBuilder(); toast('Motyw zapisany');}); }
 function usersForm(){ $('#userForm')?.addEventListener('submit',e=>{e.preventDefault(); if(!isAdmin())return toast('Tylko administrator może dodawać użytkowników'); const u=Object.fromEntries(new FormData(e.currentTarget).entries()); u.email=String(u.email||'').toLowerCase().trim(); const users=readUsers(); if(users.some(x=>x.email===u.email))return toast('Taki użytkownik już istnieje'); users.push(u); writeUsers(users); renderUsers(); e.currentTarget.reset(); toast('Użytkownik dodany');}); }
 function publish(){ $('#publish')?.addEventListener('click',()=>{toast('Zapisane. Otwieram podgląd sklepu.'); setTimeout(()=>window.open('/','_blank'),400);}); }
-document.addEventListener('DOMContentLoaded',()=>{auth();tabs();formProduct();mediaUpload();homeForm();brandForm();usersForm();publish();showApp();});
+document.addEventListener('DOMContentLoaded',()=>{auth();tabs();formProduct();mediaUpload();homeForm();brandForm();categoryForms();themeForm();usersForm();publish();showApp();});
 })();

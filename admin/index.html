@@ -38,6 +38,8 @@
       <button data-tab="product">Produkty</button>
       <button data-tab="media">Grafiki</button>
       <button data-tab="brands">Producenci</button>
+      <button data-tab="categories">Kategorie i podkategorie</button>
+      <button data-tab="themes">Motywy sezonowe</button>
       <button data-tab="home">Strona główna</button>
       <button data-tab="layout">Układ</button>
       <button data-tab="users" data-admin-only>Użytkownicy</button>
@@ -61,9 +63,11 @@
           <form id="productForm" class="panel"><h2>Dodaj / edytuj produkt</h2>
             <label>ID produktu<input name="id" placeholder="np. tv-samsung-55"></label>
             <label>Nazwa<input name="name" required placeholder="Nazwa produktu"></label>
-            <div class="two"><label>Marka<input name="brand" value="Samsung"></label><label>Kategoria<input name="category" value="RTV"></label></div>
+            <div class="two"><label>Marka<select name="brand" id="productBrand"></select></label><label>Kategoria<select name="category" id="productCategory"></select></label></div>
+            <div class="two"><label>Podkategoria<select name="subcategory" id="productSubcategory"></select></label><label>Seria / model<input name="series" placeholder="np. Serie 4 / Crystal UHD"></label></div>
             <div class="two"><label>Cena<input name="price" value="2299"></label><label>Stara cena<input name="oldPrice" value="2999"></label></div>
-            <label>Badge<input name="badge" value="Promocja"></label>
+            <div class="two"><label>Badge<input name="badge" value="Promocja"></label><label>Status<select name="status"><option value="published">Opublikowany</option><option value="draft">Szkic</option></select></label></div>
+            <div class="checks"><label><input type="checkbox" name="showHome" checked> Pokaż na stronie głównej</label><label><input type="checkbox" name="isPromo"> Promocja</label><label><input type="checkbox" name="isHit"> Hit tygodnia</label><label><input type="checkbox" name="isOutlet"> Outlet</label><label><input type="checkbox" name="isNew"> Nowość</label></div>
             <label>Zdjęcie URL<input name="image" value="/assets/products/product-05-telewizor-samsung.jpg"></label>
             <label>Krótki opis<textarea name="short">Produkt dodany z ELKASS Studio.</textarea></label>
             <label>Cechy, po jednej w linii<textarea name="features">Doradztwo ELKASS
@@ -88,6 +92,47 @@ Raty 0%</textarea></label>
             <div class="actions"><button>Dodaj producenta</button><button id="restoreBrands" type="button" class="secondary">Przywróć pełną listę</button></div>
           </form>
           <div class="panel"><h2>Lista marek na stronie</h2><div id="brandList" class="list"></div></div>
+        </div>
+      </section>
+
+      <section class="tab" id="categories">
+        <div class="grid">
+          <form id="categoryForm" class="panel"><h2>Kategorie główne</h2>
+            <label>Nazwa kategorii<input name="name" placeholder="np. AGD" required></label>
+            <label>Opis<input name="description" placeholder="Krótki opis kategorii"></label>
+            <label>Grafika URL<input name="image" placeholder="/assets/categories/clean-agd.jpg"></label>
+            <div class="actions"><button>Dodaj kategorię</button><button id="restoreCategories" type="button" class="secondary">Przywróć bazowe</button></div>
+          </form>
+          <form id="subcategoryForm" class="panel"><h2>Podkategorie</h2>
+            <label>Kategoria nadrzędna<select name="parent" id="subcategoryParent"></select></label>
+            <label>Nazwa podkategorii<input name="name" placeholder="np. Pralki ładowane od frontu" required></label>
+            <label>Grafika URL<input name="image" placeholder="opcjonalnie"></label>
+            <button>Dodaj podkategorię</button>
+          </form>
+        </div>
+        <div class="panel"><h2>Struktura kategorii widoczna w sklepie</h2><div id="categoryTree" class="category-tree"></div></div>
+      </section>
+
+      <section class="tab" id="themes">
+        <div class="grid">
+          <form id="themeForm" class="panel"><h2>Motywy / Design Engine</h2>
+            <label>Aktywny motyw<select name="theme" id="themeSelect">
+              <option value="premium">ELKASS Premium</option>
+              <option value="christmas">Boże Narodzenie</option>
+              <option value="easter">Wielkanoc</option>
+              <option value="spring">Wiosna</option>
+              <option value="summer">Lato</option>
+              <option value="autumn">Jesień</option>
+              <option value="blackweek">Black Week</option>
+              <option value="backtoschool">Back to School</option>
+              <option value="rtvdays">RTV Days</option>
+              <option value="agddays">AGD Days</option>
+            </select></label>
+            <label>Komunikat motywu<input name="message" placeholder="np. Świąteczne okazje w ELKASS"></label>
+            <label><input type="checkbox" name="decorations" checked> Dekoracje sezonowe aktywne</label>
+            <button>Zapisz motyw</button>
+          </form>
+          <div class="panel"><h2>Jak to działa</h2><p>Motyw zapisuje się w danych sklepu. Zmienia kolory, akcenty i dekoracje bez ruszania produktów. To fundament pod przyszły WOODYBOY Design Engine.</p><div id="themePreview" class="theme-preview"></div></div>
         </div>
       </section>
 

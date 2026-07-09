@@ -50,11 +50,5 @@ Dodano połączony milestone: Live CMS, Home Builder LIVE, Media Studio LIVE, Vi
 
 Projekt zawiera warstwę demonstracyjną, która pozwala pokazać szefowi sklep z produktami, grafikami i sekcjami wizualnymi zamiast pustego szkieletu. Test: `/` oraz `/admin`.
 
-
-## F5 — Mobile CMS Database Fix
-- Poprawiono mobilny header: wyszukiwarka nie nachodzi już na nawigację.
-- Produkty na mobile są pokazywane w 2 kolumnach, żeby strona nie była przesadnie długa.
-- Karty usług i statystyki pod Hero są kompaktowe.
-- Produkty dodane z panelu pojawiają się na początku listy na stronie głównej.
-- Zdjęcia w produktach i panelu są dopasowywane bez ucinania.
-- Dodano migrację Supabase pod role, rewizje CMS i producentów.
+### F6 – obsługa struktury sklepu
+Panel `/admin` pozwala teraz zarządzać kategoriami, podkategoriami i motywami. Produkty można przypisywać do pełnej struktury: marka, kategoria, podkategoria, seria/model. Wersja nadal działa lokalnie przez `localStorage`, ale posiada migrację pod Supabase.

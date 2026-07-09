@@ -32,6 +32,13 @@
       brand: p.brand || 'ELKASS',
       category: p.category || 'Oferta',
       subcategory: p.subcategory || '',
+      series: p.series || '',
+      status: p.status || (p.is_active === false ? 'draft' : 'published'),
+      showHome: p.showHome !== false,
+      isPromo: !!p.isPromo,
+      isHit: !!p.isHit,
+      isOutlet: !!p.isOutlet,
+      isNew: !!p.isNew,
       price,
       oldPrice: oldPrice || undefined,
       badge: p.badge || 'Poleca ELKASS',
@@ -87,6 +94,13 @@
             brand: row.brand,
             category: row.category,
             subcategory: row.subcategory,
+            series: row.series || row.product_json?.series,
+            status: row.status || row.product_json?.status,
+            showHome: row.product_json?.showHome,
+            isPromo: row.product_json?.isPromo,
+            isHit: row.product_json?.isHit,
+            isOutlet: row.product_json?.isOutlet,
+            isNew: row.product_json?.isNew,
             price: row.price,
             oldPrice: row.old_price,
             badge: row.badge,
@@ -103,11 +117,8 @@
 
     const local = readLocalProducts().map(normalizeProduct);
     if(local.length){
-      // F5: produkty dodane z panelu mają być widoczne od razu na Home,
-      // dlatego lokalne/nowe produkty idą na początek listy, a demo dopiero za nimi.
-      const byId = new Map();
+      const byId = new Map(base.map(p=>[p.id, p]));
       local.forEach(p=>byId.set(p.id, p));
-      base.forEach(p=>{ if(!byId.has(p.id)) byId.set(p.id, p); });
       return Array.from(byId.values());
     }
     return base;

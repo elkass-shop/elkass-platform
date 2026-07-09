@@ -152,11 +152,10 @@ Dodano połączony milestone: Live CMS, Home Builder LIVE, Media Studio LIVE, Vi
 - Ustabilizowano dopasowanie zdjęć: grafiki produktów i media w panelu używają `object-fit: contain`, żeby nie ucinały zdjęć.
 - Zachowano finalny Home F3/F4 oraz podstawowy Live CMS produktów i grafik.
 
-
-## F5 — Mobile CMS Database Fix
-- Poprawiono mobilny header: wyszukiwarka nie nachodzi już na nawigację.
-- Produkty na mobile są pokazywane w 2 kolumnach, żeby strona nie była przesadnie długa.
-- Karty usług i statystyki pod Hero są kompaktowe.
-- Produkty dodane z panelu pojawiają się na początku listy na stronie głównej.
-- Zdjęcia w produktach i panelu są dopasowywane bez ucinania.
-- Dodano migrację Supabase pod role, rewizje CMS i producentów.
+## F6 – Category/Subcategory + Theme Engine + Product Builder Complete
+- Dodano builder kategorii i podkategorii w `/admin`.
+- Product Builder otrzymał wybór: marka → kategoria → podkategoria → seria/model.
+- Dodano flagi produktu: strona główna, promocja, hit tygodnia, outlet, nowość oraz status szkic/opublikowany.
+- Dodano panel motywów sezonowych: Premium, Boże Narodzenie, Wielkanoc, Wiosna, Lato, Jesień, Black Week, Back to School, RTV Days, AGD Days.
+- Strona główna czyta kategorie i motyw z danych lokalnych, zachowując fallback demo.
+- Dodano migrację Supabase dla kategorii, podkategorii, motywów i pól produktów.
