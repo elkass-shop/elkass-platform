@@ -67,3 +67,12 @@ Następnie: V58 Search/SEO PRO oraz V59 Launch Quality Pass.
 ## M3 – ELKASS Live Platform
 
 Dodano połączony milestone: Live CMS, Home Builder LIVE, Media Studio LIVE, Visual Builder, Theme Engine LIVE i Design System. Szczegóły: `docs/milestones/M3_LIVE_PLATFORM.md`.
+
+
+## F5 — Mobile CMS Database Fix
+- Poprawiono mobilny header: wyszukiwarka nie nachodzi już na nawigację.
+- Produkty na mobile są pokazywane w 2 kolumnach, żeby strona nie była przesadnie długa.
+- Karty usług i statystyki pod Hero są kompaktowe.
+- Produkty dodane z panelu pojawiają się na początku listy na stronie głównej.
+- Zdjęcia w produktach i panelu są dopasowywane bez ucinania.
+- Dodano migrację Supabase pod role, rewizje CMS i producentów.

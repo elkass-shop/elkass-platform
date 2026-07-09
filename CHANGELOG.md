@@ -151,3 +151,12 @@ Dodano połączony milestone: Live CMS, Home Builder LIVE, Media Studio LIVE, Vi
 - Dodano w panelu sekcję Producenci: dodawanie, usuwanie i przywracanie listy marek.
 - Ustabilizowano dopasowanie zdjęć: grafiki produktów i media w panelu używają `object-fit: contain`, żeby nie ucinały zdjęć.
 - Zachowano finalny Home F3/F4 oraz podstawowy Live CMS produktów i grafik.
+
+
+## F5 — Mobile CMS Database Fix
+- Poprawiono mobilny header: wyszukiwarka nie nachodzi już na nawigację.
+- Produkty na mobile są pokazywane w 2 kolumnach, żeby strona nie była przesadnie długa.
+- Karty usług i statystyki pod Hero są kompaktowe.
+- Produkty dodane z panelu pojawiają się na początku listy na stronie głównej.
+- Zdjęcia w produktach i panelu są dopasowywane bez ucinania.
+- Dodano migrację Supabase pod role, rewizje CMS i producentów.

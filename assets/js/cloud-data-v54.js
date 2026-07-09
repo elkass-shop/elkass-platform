@@ -103,8 +103,11 @@
 
     const local = readLocalProducts().map(normalizeProduct);
     if(local.length){
-      const byId = new Map(base.map(p=>[p.id, p]));
+      // F5: produkty dodane z panelu mają być widoczne od razu na Home,
+      // dlatego lokalne/nowe produkty idą na początek listy, a demo dopiero za nimi.
+      const byId = new Map();
       local.forEach(p=>byId.set(p.id, p));
+      base.forEach(p=>{ if(!byId.has(p.id)) byId.set(p.id, p); });
       return Array.from(byId.values());
     }
     return base;
