@@ -49,12 +49,3 @@ Dodano połączony milestone: Live CMS, Home Builder LIVE, Media Studio LIVE, Vi
 ### M4 Showroom Ready
 
 Projekt zawiera warstwę demonstracyjną, która pozwala pokazać szefowi sklep z produktami, grafikami i sekcjami wizualnymi zamiast pustego szkieletu. Test: `/` oraz `/admin`.
-
-
-### F4.1 — Najważniejsze do testu
-
-1. Wejdź do `/admin/`.
-2. Dodaj produkt z własnym zdjęciem.
-3. Odśwież `/` — produkt powinien pojawić się w sekcji produktów na początku listy.
-4. Otwórz produkt przez `/app/product/?id=ID_PRODUKTU`.
-5. Sprawdź pasek producentów i dopasowanie zdjęć w panelu.

@@ -1,12 +1,3 @@
-
-## F4.1 — Product Visibility + Media Fit + Brand Logos
-
-- Produkty dodane w ELKASS Studio są pokazywane na stronie głównej przed produktami demo.
-- Zdjęcia produktów i grafiki w panelu dopasowują się automatycznie bez ucinania.
-- Powiększony i uporządkowany pasek producentów.
-- Dodane / odświeżone logotypy marek w `assets/logos/`.
-- Zachowany finalny Home i panel LIVE CMS.
-
 # CHANGELOG — ELKASS Platform
 
 ## V49.1 — Home polish
@@ -152,3 +143,11 @@ Dodano połączony milestone: Live CMS, Home Builder LIVE, Media Studio LIVE, Vi
 - Zachowano Media Studio: dodawanie grafik, ustawianie Hero, salonu i zdjęcia produktu.
 - Dodano zarządzanie użytkownikami dla administratora.
 - Utrzymano ostatni zaakceptowany kierunek Home z F3.
+
+## F4.2 + F5 — Brand ribbon rollback + CMS stabilization
+
+- Przywrócono ruchomy pasek producentów w formie większych kafli tekstowych, zamiast nieudanych pseudo-logotypów.
+- Dodano pełniejszą listę marek: Samsung, Bosch, LG, Beko, Amica, Philips, Sony, Lenovo, Whirlpool, Electrolux, Tefal, JBL, Siemens, Sharp, TCL, Hisense, Gorenje, Xiaomi, AEG, Panasonic, Remington, Blaupunkt, Kernau, Sencor, Manta, Philco, DeLonghi, Miele, Liebherr, Haier, Candy.
+- Dodano w panelu sekcję Producenci: dodawanie, usuwanie i przywracanie listy marek.
+- Ustabilizowano dopasowanie zdjęć: grafiki produktów i media w panelu używają `object-fit: contain`, żeby nie ucinały zdjęć.
+- Zachowano finalny Home F3/F4 oraz podstawowy Live CMS produktów i grafik.

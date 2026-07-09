@@ -30,14 +30,7 @@
     {id:'cat-rtv',type:'category',name:'RTV',url:'/assets/categories/clean-rtv.jpg'},
     {id:'cat-agd',type:'category',name:'AGD',url:'/assets/categories/clean-agd.jpg'}
   ];
-  function getProducts(){
-    const local=read(KEY_PRODUCTS,[]);
-    const cloud=window.ElkassCloud?.readLocalProducts?.()||[];
-    const byId=new Map();
-    // F4.1: produkty dodane w panelu zawsze na początku listy.
-    [...cloud, ...local, ...seedProducts].forEach(p=>{ if(p && p.id && !byId.has(p.id)) byId.set(p.id,p); });
-    return Array.from(byId.values());
-  }
+  function getProducts(){const local=read(KEY_PRODUCTS,[]); if(local.length) return local; const cloud=window.ElkassCloud?.readLocalProducts?.()||[]; return cloud.length?cloud:seedProducts;}
   function saveProducts(list){write(KEY_PRODUCTS,list); if(window.ElkassCloud){list.forEach(p=>window.ElkassCloud.saveProduct?.(p));} window.dispatchEvent(new CustomEvent('m3:products',{detail:list}));}
   function getHome(){return Object.assign({},defaultHome,read(KEY_HOME,{}));}
   function saveHome(data,draft=false){write(draft?KEY_DRAFT:KEY_HOME,Object.assign({},getHome(),data,{updatedAt:new Date().toISOString()})); window.dispatchEvent(new CustomEvent('m3:home',{detail:getHome()}));}
