@@ -132,3 +132,14 @@ Dodano połączony milestone: Live CMS, Home Builder LIVE, Media Studio LIVE, Vi
 - Hit tygodnia przywrócony jako pełna sekcja 70/30 z produktami pobieranymi z danych lub fallbacku.
 - Większy pasek producentów z prawdziwymi logotypami.
 - Zachowany LIVE CMS: produkty/grafiki z panelu nadal działają przez localStorage/Supabase fallback.
+
+## F4 — Final Live CMS + Auth Foundation
+
+- Dodano ekran logowania do `/admin`.
+- Dodano role: Administrator i Moderator.
+- Dodano konta testowe: `admin@elkass.pl / admin123` i `mod@elkass.pl / mod123`.
+- Dodano formularz resetu hasła w wersji demo, gotowy pod Supabase Auth.
+- Zachowano LIVE CMS: dodawanie, edycję i usuwanie produktów.
+- Zachowano Media Studio: dodawanie grafik, ustawianie Hero, salonu i zdjęcia produktu.
+- Dodano zarządzanie użytkownikami dla administratora.
+- Utrzymano ostatni zaakceptowany kierunek Home z F3.

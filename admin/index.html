@@ -1,3 +1,90 @@
-<!doctype html><html lang="pl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>ELKASS Studio LIVE</title><link rel="stylesheet" href="/assets/css/elkass-studio-live.css"></head><body><div class="studio"><aside><a class="brand" href="/"><span>E</span><b>ELKASS Studio<small>LIVE CMS</small></b></a><button class="active" data-tab="dashboard">Start</button><button data-tab="product">Produkty</button><button data-tab="media">Grafiki</button><button data-tab="home">Strona główna</button><button data-tab="layout">Układ</button><a href="/" target="_blank">↗ Podgląd sklepu</a><p>ELKASS to pierwsze wdrożenie przyszłej platformy WOODYBOY. Wszystko ma być proste dla laika.</p></aside><main><header><div><h1>ELKASS Studio LIVE</h1><p>Dodawanie produktów, grafik i zmian na stronie bez edycji kodu.</p></div><button id="publish">Opublikuj / odśwież podgląd</button></header><section class="tab active" id="dashboard"><div class="cards"><article><b id="countProducts">0</b><span>produktów</span></article><article><b id="countMedia">0</b><span>grafik lokalnych</span></article><article><b>LIVE</b><span>tryb zapisu</span></article></div><p class="note">Zapis działa lokalnie w przeglądarce i jest przygotowany pod Supabase przez ElkassCloud. Do prezentacji rano możesz dodać produkt i grafikę, odświeżyć stronę i zobaczyć efekt.</p></section><section class="tab" id="product"><div class="grid"><form id="productForm" class="panel"><h2>Dodaj / edytuj produkt</h2><label>ID produktu<input name="id" placeholder="np. tv-samsung-55"></label><label>Nazwa<input name="name" required></label><label>Marka<input name="brand" value="Samsung"></label><label>Kategoria<input name="category" value="RTV"></label><label>Cena<input name="price" value="2299"></label><label>Stara cena<input name="oldPrice" value="2999"></label><label>Badge<input name="badge" value="Promocja"></label><label>Zdjęcie URL<input name="image" value="/assets/products/product-05-telewizor-samsung.jpg"></label><label>Krótki opis<textarea name="short">Produkt dodany z ELKASS Studio.</textarea></label><label>Cechy, po jednej w linii<textarea name="features">Doradztwo ELKASS
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>ELKASS Studio LIVE</title>
+  <link rel="stylesheet" href="/assets/css/elkass-studio-live.css">
+</head>
+<body>
+  <section class="login-shell" id="loginView">
+    <div class="login-card">
+      <a class="brand login-brand" href="/"><span>E</span><b>ELKASS Studio<small>LIVE CMS + Auth</small></b></a>
+      <h1>Zaloguj do panelu</h1>
+      <p>Panel do dodawania produktów, grafik, zmiany Hero i przygotowania sklepu do prezentacji.</p>
+      <form id="loginForm" class="auth-form">
+        <label>Email<input name="email" type="email" value="admin@elkass.pl" required></label>
+        <label>Hasło<input name="password" type="password" value="admin123" required></label>
+        <button>Zaloguj</button>
+      </form>
+      <button class="linklike" id="showReset" type="button">Nie pamiętasz hasła? Wyślij reset na email</button>
+      <form id="resetForm" class="auth-form hidden">
+        <label>Email do resetu<input name="email" type="email" value="admin@elkass.pl" required></label>
+        <button type="submit">Wyślij link resetujący</button>
+      </form>
+      <div class="demo-users">
+        <b>Konta testowe:</b>
+        <span>admin@elkass.pl / admin123 — pełny dostęp</span>
+        <span>mod@elkass.pl / mod123 — produkty i grafiki</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="studio hidden" id="studioView">
+    <aside>
+      <a class="brand" href="/"><span>E</span><b>ELKASS Studio<small>LIVE CMS</small></b></a>
+      <div class="userbox"><b id="userName">Admin</b><small id="userRole">admin</small></div>
+      <button class="active" data-tab="dashboard">Start</button>
+      <button data-tab="product">Produkty</button>
+      <button data-tab="media">Grafiki</button>
+      <button data-tab="home">Strona główna</button>
+      <button data-tab="layout">Układ</button>
+      <button data-tab="users" data-admin-only>Użytkownicy</button>
+      <a href="/" target="_blank">↗ Podgląd sklepu</a>
+      <button id="logout" class="logout" type="button">Wyloguj</button>
+      <p>ELKASS to pierwsze wdrożenie przyszłej platformy WOODYBOY. Codzienna obsługa ma działać bez edycji kodu.</p>
+    </aside>
+    <main>
+      <header>
+        <div><h1>ELKASS Studio LIVE</h1><p>Produkty, grafiki i strona główna — prosty panel dla laika.</p></div>
+        <button id="publish">Opublikuj / odśwież podgląd</button>
+      </header>
+
+      <section class="tab active" id="dashboard">
+        <div class="cards"><article><b id="countProducts">0</b><span>produktów</span></article><article><b id="countMedia">0</b><span>grafik lokalnych</span></article><article><b id="countUsers">2</b><span>użytkowników</span></article><article><b>LIVE</b><span>tryb zapisu</span></article></div>
+        <div class="panel"><h2>Co możesz pokazać rano</h2><ul class="checklist"><li>Dodajesz produkt w panelu i pojawia się na stronie.</li><li>Dodajesz grafikę i ustawiasz ją jako Hero lub zdjęcie salonu.</li><li>Administrator ma pełny dostęp, moderator ograniczony.</li><li>Reset hasła działa jako wersja demo i jest gotowy pod Supabase Auth.</li></ul></div>
+      </section>
+
+      <section class="tab" id="product">
+        <div class="grid">
+          <form id="productForm" class="panel"><h2>Dodaj / edytuj produkt</h2>
+            <label>ID produktu<input name="id" placeholder="np. tv-samsung-55"></label>
+            <label>Nazwa<input name="name" required placeholder="Nazwa produktu"></label>
+            <div class="two"><label>Marka<input name="brand" value="Samsung"></label><label>Kategoria<input name="category" value="RTV"></label></div>
+            <div class="two"><label>Cena<input name="price" value="2299"></label><label>Stara cena<input name="oldPrice" value="2999"></label></div>
+            <label>Badge<input name="badge" value="Promocja"></label>
+            <label>Zdjęcie URL<input name="image" value="/assets/products/product-05-telewizor-samsung.jpg"></label>
+            <label>Krótki opis<textarea name="short">Produkt dodany z ELKASS Studio.</textarea></label>
+            <label>Cechy, po jednej w linii<textarea name="features">Doradztwo ELKASS
 Transport lokalny
-Raty 0%</textarea></label><button>Zapisz produkt</button></form><div class="panel"><h2>Lista produktów</h2><div id="productList" class="list"></div></div></div></section><section class="tab" id="media"><div class="grid"><div class="panel"><h2>Dodaj grafikę</h2><input type="file" id="mediaFile" accept="image/*"><p>Grafika zostanie zapisana lokalnie jako podgląd/demo. Później ten sam mechanizm podepniemy pod Supabase Storage.</p><button id="useHero">Użyj zaznaczonej jako Hero</button><button id="useSalon">Użyj zaznaczonej jako Salon</button></div><div class="panel"><h2>Biblioteka</h2><div id="mediaGrid" class="media"></div></div></div></section><section class="tab" id="home"><form id="homeForm" class="panel"><h2>Strona główna</h2><label>Tytuł Hero<textarea name="heroTitle">Technologia do Twojego domu &lt;em&gt;z doradztwem ELKASS&lt;/em&gt;</textarea></label><label>Opis Hero<textarea name="heroText">RTV, AGD, montaż, transport i wsparcie po zakupie. Lokalny salon w Oleśnie, który pomaga dobrać sprzęt do domu, nie tylko do ceny z półki.</textarea></label><label>Grafika Hero<input name="heroImage" placeholder="/assets/hero-clean-panorama.png"></label><label>Grafika salonu<input name="salonImage" placeholder="/assets/gallery/gallery-16-salon-elkass.jpg"></label><button>Zapisz stronę główną</button></form></section><section class="tab" id="layout"><div class="panel"><h2>Układ strony</h2><p>Wersja finalna Home ma zamknięty Design System: panoramiczne Hero, pasek statystyk, kategorie, Hit tygodnia, marki, produkty, salon, opinie, kontakt i stopka. Kolejność sekcji zostaje stabilna na prezentację.</p></div></section></main></div><div id="toast"></div><script src="/config/cloud-config.js"></script><script src="/assets/js/cloud-data-v54.js"></script><script src="/assets/js/elkass-studio-live.js"></script></body></html>
+Raty 0%</textarea></label>
+            <div class="actions"><button>Zapisz produkt</button><button id="newProduct" type="button" class="secondary">Wyczyść formularz</button></div>
+          </form>
+          <div class="panel"><h2>Lista produktów</h2><div id="productList" class="list"></div></div>
+        </div>
+      </section>
+
+      <section class="tab" id="media">
+        <div class="grid"><div class="panel"><h2>Dodaj grafikę</h2><input type="file" id="mediaFile" accept="image/*"><p>Grafika zapisuje się lokalnie jako demo. Po podpięciu Supabase Storage ten sam wybór będzie wysyłał pliki do chmury.</p><button id="useHero">Użyj zaznaczonej jako Hero</button><button id="useSalon">Użyj zaznaczonej jako Salon</button><button id="useProductImage" type="button">Wstaw do formularza produktu</button></div><div class="panel"><h2>Biblioteka</h2><div id="mediaGrid" class="media"></div></div></div>
+      </section>
+
+      <section class="tab" id="home"><form id="homeForm" class="panel"><h2>Strona główna</h2><label>Tytuł Hero<textarea name="heroTitle">Technologia do Twojego domu &lt;em&gt;z doradztwem ELKASS&lt;/em&gt;</textarea></label><label>Opis Hero<textarea name="heroText">RTV, AGD, montaż, transport i wsparcie po zakupie. Lokalny salon w Oleśnie, który pomaga dobrać sprzęt do domu, nie tylko do ceny z półki.</textarea></label><label>Grafika Hero<input name="heroImage" placeholder="/assets/hero-clean-panorama.png"></label><label>Grafika salonu<input name="salonImage" placeholder="/assets/gallery/gallery-16-salon-elkass.jpg"></label><button>Zapisz stronę główną</button></form></section>
+
+      <section class="tab" id="layout"><div class="panel"><h2>Układ strony</h2><p>Na prezentację kolejność sekcji jest zablokowana: Hero, statystyki, kategorie, Hit tygodnia, marki, produkty, salon, opinie, kontakt i stopka. To chroni wygląd przed przypadkowym rozsypaniem.</p></div></section>
+
+      <section class="tab" id="users"><div class="grid"><form id="userForm" class="panel"><h2>Dodaj użytkownika</h2><label>Email<input name="email" type="email" placeholder="pracownik@elkass.pl" required></label><label>Imię<input name="name" placeholder="Pracownik"></label><label>Rola<select name="role"><option value="moderator">Moderator</option><option value="admin">Administrator</option></select></label><label>Hasło startowe<input name="password" value="elkass123"></label><button>Dodaj użytkownika</button></form><div class="panel"><h2>Użytkownicy i role</h2><div id="usersList" class="list"></div><p class="note">Wersja lokalna do prezentacji. Docelowo logowanie i reset hasła podłączamy do Supabase Auth.</p></div></div></section>
+    </main>
+  </div>
+  <div id="toast"></div><script src="/config/cloud-config.js"></script><script src="/assets/js/cloud-data-v54.js"></script><script src="/assets/js/elkass-studio-live.js"></script>
+</body>
+</html>
