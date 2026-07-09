@@ -1,3 +1,12 @@
+
+## F4.1 — Product Visibility + Media Fit + Brand Logos
+
+- Produkty dodane w ELKASS Studio są pokazywane na stronie głównej przed produktami demo.
+- Zdjęcia produktów i grafiki w panelu dopasowują się automatycznie bez ucinania.
+- Powiększony i uporządkowany pasek producentów.
+- Dodane / odświeżone logotypy marek w `assets/logos/`.
+- Zachowany finalny Home i panel LIVE CMS.
+
 # CHANGELOG — ELKASS Platform
 
 ## V49.1 — Home polish
