@@ -73,15 +73,20 @@
   }
 
   async function getProducts(){
+    // F4.1: produkty dodane w panelu muszą być widoczne od razu na stronie.
+    // Dlatego localStorage/Supabase mają pierwszeństwo przed produktami demo z JSON.
     let base = [];
-    try { base = await fetchJsonProducts(); } catch(e){ console.warn('Nie udało się pobrać /data/products.json', e); }
+    let cloud = [];
+    const local = readLocalProducts().map(normalizeProduct).filter(p => p.is_active !== false);
+
+    try { base = (await fetchJsonProducts()).map(normalizeProduct).filter(p => p.is_active !== false); } catch(e){ console.warn('Nie udało się pobrać /data/products.json', e); }
 
     if(supabaseReady()){
       try {
         const c = cfg();
         const rows = await supabaseRequest(`${c.tables.products || 'products'}?project_slug=eq.${encodeURIComponent(c.projectId||DEFAULT_PROJECT)}&is_active=eq.true&select=*`);
         if(Array.isArray(rows) && rows.length){
-          const cloud = rows.map(row => normalizeProduct(Object.assign({}, row.product_json || {}, {
+          cloud = rows.map(row => normalizeProduct(Object.assign({}, row.product_json || {}, {
             id: row.id,
             name: row.name,
             brand: row.brand,
@@ -93,21 +98,17 @@
             availability: row.availability,
             image: row.image,
             is_active: row.is_active
-          })));
-          const byId = new Map(base.map(p=>[p.id, p]));
-          cloud.forEach(p=>byId.set(p.id, p));
-          return Array.from(byId.values());
+          }))).filter(p => p.is_active !== false);
         }
       } catch(e){ console.warn('Cloud products fallback do JSON/localStorage:', e); }
     }
 
-    const local = readLocalProducts().map(normalizeProduct);
-    if(local.length){
-      const byId = new Map(base.map(p=>[p.id, p]));
-      local.forEach(p=>byId.set(p.id, p));
-      return Array.from(byId.values());
-    }
-    return base;
+    const byId = new Map();
+    // Kolejność jest celowa: najpierw najnowsze z panelu, potem chmura, na końcu demo.
+    [...local, ...cloud, ...base].forEach(p => {
+      if(p && p.id && !byId.has(p.id)) byId.set(p.id, p);
+    });
+    return Array.from(byId.values());
   }
 
   async function saveProduct(product){

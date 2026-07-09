@@ -1,5 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="220" height="90" viewBox="0 0 220 90" role="img" aria-label="TCL logo">
-  <rect width="220" height="90" rx="18" fill="#ffffff"/>
-  <rect x="1" y="1" width="218" height="88" rx="17" fill="none" stroke="#e8edf3"/>
-  <text x="110" y="54" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="800" letter-spacing="1" fill="#111827">TCL</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="240" height="92" viewBox="0 0 240 92" role="img" aria-label="TCL logo">
+  <rect width="240" height="92" rx="18" fill="#ffffff"/>
+  <rect x="1" y="1" width="238" height="90" rx="17" fill="none" stroke="#e7edf5"/>
+  <rect x="24" y="26" width="62" height="38" rx="8" fill="#e50012" opacity=".95"/>
+  <text x="126" y="55" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="26" font-weight="900" fill="#e50012" letter-spacing="0.5">TCL</text>
 </svg>
