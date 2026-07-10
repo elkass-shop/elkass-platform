@@ -119,21 +119,28 @@ Raty 0%</textarea></label>
           <form id="themeForm" class="panel"><h2>Motywy / Design Engine</h2>
             <label>Aktywny motyw<select name="theme" id="themeSelect">
               <option value="premium">ELKASS Premium</option>
-              <option value="christmas">Boże Narodzenie</option>
+              <option value="christmas">Boże Narodzenie</option><option value="winter">Zima</option><option value="mikolajki">Mikołajki</option>
               <option value="easter">Wielkanoc</option>
               <option value="spring">Wiosna</option>
               <option value="summer">Lato</option>
               <option value="autumn">Jesień</option>
-              <option value="blackweek">Black Week</option>
+              <option value="blackweek">Black Week</option><option value="cyberweek">Cyber Week</option>
               <option value="backtoschool">Back to School</option>
               <option value="rtvdays">RTV Days</option>
               <option value="agddays">AGD Days</option>
             </select></label>
-            <label>Komunikat motywu<input name="message" placeholder="np. Świąteczne okazje w ELKASS"></label>
+            <label>Komunikat kampanii<input name="message" placeholder="np. Świąteczne okazje w ELKASS"></label>
+            <label>Etykieta kampanii<input name="campaignLabel" placeholder="np. Świąteczna kolekcja"></label>
+            <label>Intensywność dekoracji<select name="intensity"><option value="subtle">Subtelna</option><option value="balanced" selected>Elegancka</option><option value="rich">Bogata</option></select></label>
+            <label>Grafika Hero desktop<input name="heroDesktop" placeholder="puste = grafika motywu"></label>
+            <label>Grafika Hero mobile<input name="heroMobile" placeholder="opcjonalnie"></label>
+            <label><input type="checkbox" name="useThemeHero" checked> Automatycznie zmieniaj Hero zgodnie z motywem</label>
             <label><input type="checkbox" name="decorations" checked> Dekoracje sezonowe aktywne</label>
-            <button>Zapisz motyw</button>
+            <label><input type="checkbox" name="autoSchedule"> Aktywuj według harmonogramu</label>
+            <div class="grid"><label>Start<input type="datetime-local" name="startAt"></label><label>Koniec<input type="datetime-local" name="endAt"></label></div>
+            <div class="actions"><button>Zapisz i opublikuj motyw</button><button id="themePreviewOpen" type="button" class="secondary">Podgląd sklepu</button></div>
           </form>
-          <div class="panel"><h2>Jak to działa</h2><p>Motyw zapisuje się w danych sklepu. Zmienia kolory, akcenty i dekoracje bez ruszania produktów. To fundament pod przyszły WOODYBOY Design Engine.</p><div id="themePreview" class="theme-preview"></div></div>
+          <div class="panel"><h2>Ekskluzywne motywy i kampanie</h2><p>Motyw zmienia Hero, akcenty, oprawę kart, dekoracje i komunikat kampanii. Harmonogram może automatycznie włączyć i wyłączyć akcję.</p><div id="themeScheduleStatus" class="theme-status"></div><div id="themePreview" class="theme-preview"></div><h3>Historia publikacji</h3><div id="themeHistory" class="theme-history"></div></div>
         </div>
       </section>
 
@@ -144,6 +151,6 @@ Raty 0%</textarea></label>
       <section class="tab" id="users"><div class="grid"><form id="userForm" class="panel"><h2>Dodaj użytkownika</h2><label>Email<input name="email" type="email" placeholder="pracownik@elkass.pl" required></label><label>Imię<input name="name" placeholder="Pracownik"></label><label>Rola<select name="role"><option value="moderator">Moderator</option><option value="admin">Administrator</option></select></label><label>Hasło startowe<input name="password" value="elkass123"></label><button>Dodaj użytkownika</button></form><div class="panel"><h2>Użytkownicy i role</h2><div id="usersList" class="list"></div><p class="note">Wersja lokalna do prezentacji. Docelowo logowanie i reset hasła podłączamy do Supabase Auth.</p></div></div></section>
     </main>
   </div>
-  <div id="toast"></div><script src="/config/cloud-config.js"></script><script src="/assets/js/cloud-data-v54.js"></script><script src="/assets/js/elkass-studio-live.js"></script>
+  <div id="toast"></div><script src="/config/cloud-config.js"></script><script src="/assets/js/cloud-data-v54.js"></script><script src="/assets/js/elkass-seasonal-engine.js"></script><script src="/assets/js/elkass-studio-live.js"></script>
 </body>
 </html>

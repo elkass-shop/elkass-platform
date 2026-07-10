@@ -168,3 +168,9 @@ Dodano połączony milestone: Live CMS, Home Builder LIVE, Media Studio LIVE, Vi
 - Black Week: czarno-żółta oprawa, błyskawice i wstęga promocyjna.
 - Back to School / RTV Days / AGD Days: tematyczne ikony i dekoracje.
 - Panel motywów ma teraz wizualne kafle i natychmiastowy podgląd wyboru.
+
+## F7–F9 Luxury Seasonal Campaigns
+- ekskluzywne motywy z dedykowanym Hero i dekoracjami SVG
+- harmonogram kampanii
+- intensywność dekoracji
+- historia publikacji i przywracanie motywów
