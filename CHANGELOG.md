@@ -159,3 +159,12 @@ Dodano połączony milestone: Live CMS, Home Builder LIVE, Media Studio LIVE, Vi
 - Dodano panel motywów sezonowych: Premium, Boże Narodzenie, Wielkanoc, Wiosna, Lato, Jesień, Black Week, Back to School, RTV Days, AGD Days.
 - Strona główna czyta kategorie i motyw z danych lokalnych, zachowując fallback demo.
 - Dodano migrację Supabase dla kategorii, podkategorii, motywów i pól produktów.
+
+## F6.1 — Seasonal Design Engine LIVE
+- Motywy sezonowe otrzymały rzeczywiste dekoracje, animacje i kolory.
+- Boże Narodzenie: śnieg, choinki, prezenty, bombki i świąteczny komunikat.
+- Wielkanoc: pisanki, królik, kwiaty i płatki.
+- Wiosna/Lato/Jesień: płatki, słońce, liście, dynie i sezonowe akcenty.
+- Black Week: czarno-żółta oprawa, błyskawice i wstęga promocyjna.
+- Back to School / RTV Days / AGD Days: tematyczne ikony i dekoracje.
+- Panel motywów ma teraz wizualne kafle i natychmiastowy podgląd wyboru.
